@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Letterlight Privacy Policy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Inter:wght@400;600&display=swap">
+<style>
+:root {
+  --paper: #F6F1E7; --ink: #1F2A44; --muted: #5B6276; --amber: #B07330; --rule: #E2D9C8;
+  --serif: "Lora", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper: #151B2C; --ink: #EDE7DA; --muted: #A9AFC0; --amber: #D99B52; --rule: #2E3750; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --paper: #151B2C; --ink: #EDE7DA; --muted: #A9AFC0; --amber: #D99B52; --rule: #2E3750; color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--paper); color: var(--ink); font: 400 1rem/1.65 var(--sans); }
+main {
+  max-width: 40rem; margin: 0 auto; padding-block: 2rem 4rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--amber); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+h1, h2 { font-family: var(--serif); font-weight: 600; line-height: 1.2; text-wrap: balance; }
+h1 { font-size: 2rem; margin: 1.5rem 0 0.25rem; }
+h2 { font-size: 1.2rem; margin: 2.25rem 0 0.5rem; }
+.date { color: var(--muted); margin: 0; }
+ul { padding-left: 1.25rem; }
+li + li { margin-top: 0.35rem; }
+footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.875rem; }
+</style>
+</head>
+<body>
+<main>
+<a href="./">← Letterlight</a>
+<h1>Privacy policy</h1>
+<p class="date">Last updated 20 October 2026</p>
+
+<p>Letterlight is a journal app for Android. This page explains what happens to what you write.</p>
+
+<h2>What stays on your phone</h2>
+<ul>
+  <li>Your journal entries, moods, letters, replies, routine and practices are saved only in the app's storage on your device.</li>
+  <li>Files you attach as sources (PDFs, images, text) are copied into the app's storage on your device.</li>
+  <li>Your Anthropic API key, if you enter one, is saved on your device.</li>
+  <li>There is no Letterlight account and no Letterlight server. We never receive your journal.</li>
+</ul>
+
+<h2>What is sent to Anthropic</h2>
+<p>Letters are written by Claude, an AI model made by Anthropic. When you ask for a letter, a reply or a translation, the app sends these to Anthropic's API:</p>
+<ul>
+  <li>the entry and mood you're asking about, and the earlier letters and replies in that conversation;</li>
+  <li>any sources attached to that entry;</li>
+  <li>the mentor you chose, your app language and the local date and time;</li>
+  <li>for routine and practice reminders, the habit or exercise they are about.</li>
+</ul>
+<p>Anthropic processes this under its own terms and <a href="https://www.anthropic.com/legal/privacy" rel="noopener">privacy policy</a>. If you use your own API key, the requests go to Anthropic under your own account.</p>
+
+<h2>Web pages you add</h2>
+<p>When you add a web page as a source, the app downloads that page directly from its website once and keeps its text on your device.</p>
+
+<h2>What we don't do</h2>
+<ul>
+  <li>No analytics, advertising or tracking libraries.</li>
+  <li>No selling or sharing of your data.</li>
+  <li>Notifications are scheduled on your phone; no push server is involved.</li>
+</ul>
+
+<h2>Deleting your data</h2>
+<p>Delete entries in the app, or uninstall Letterlight to remove everything it stored on your device. Clearing the app's storage in Android settings does the same.</p>
+
+<h2>Children</h2>
+<p>Letterlight is not directed at children under 13.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:hello@letterlight.app">hello@letterlight.app</a></p>
+
+<footer>© 2026 Letterlight</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Letterlight</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="An AI journal for Android. Write about your day and Seneca, Tolstoy, Rumi or Maimonides writes back with a personal letter.">
+<meta property="og:title" content="Letterlight">
+<meta property="og:description" content="Write it down. Great minds write back.">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Frank+Ruhl+Libre:wght@500&family=Heebo:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column, like a letter on a desk; the hero is a real letter from the app. */
+:root {
+  --paper: #F6F1E7;     /* app parchment */
+  --sheet: #FFFDF8;     /* the letter card */
+  --ink: #1F2A44;       /* app ink */
+  --muted: #5B6276;
+  --amber: #B07330;     /* app amber, darkened for text on paper */
+  --amber-wash: #F3E6D3;
+  --rule: #E2D9C8;
+  --sage: #5E7360;
+  --serif: "Lora", "Frank Ruhl Libre", Georgia, "Times New Roman", serif;
+  --sans: "Inter", "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --he-serif: "Frank Ruhl Libre", "Lora", Georgia, serif;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-3: clamp(2.1rem, 6vw, 3.25rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #151B2C; --sheet: #1D2539; --ink: #EDE7DA; --muted: #A9AFC0;
+    --amber: #D99B52; --amber-wash: #2A2A2E; --rule: #2E3750; --sage: #9DB39E;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #151B2C; --sheet: #1D2539; --ink: #EDE7DA; --muted: #A9AFC0;
+  --amber: #D99B52; --amber-wash: #2A2A2E; --rule: #2E3750; --sage: #9DB39E;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 var(--step-0)/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--amber); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.15; }
+.label {
+  font: 600 0.75rem/1 var(--sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* masthead */
+.mast { padding-block: 1.5rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { display: flex; align-items: center; gap: 0.6rem; font: 600 var(--step-1)/1 var(--serif); color: var(--ink); text-decoration: none; }
+.brand img { width: 32px; height: 32px; border-radius: 7px; }
+.mast .soon { font-size: 0.875rem; color: var(--muted); }
+
+/* hero */
+.hero { padding-block: 3.5rem 2.5rem; display: grid; gap: 1.25rem; }
+.hero h1 { font-size: var(--step-3); letter-spacing: -0.01em; }
+.hero h1 em { font-style: italic; font-weight: 500; color: var(--amber); }
+.hero p { margin: 0; font-size: var(--step-1); color: var(--muted); max-width: 34rem; }
+.cta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-top: 0.5rem; }
+.badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 1.1rem; border-radius: 999px;
+  background: var(--ink); color: var(--paper);
+  font: 500 0.9375rem/1 var(--sans);
+}
+.cta small { color: var(--muted); font-size: 0.875rem; }
+
+/* the sample: an entry and the letter that answers it */
+.sample { display: grid; gap: 1rem; padding-block: 0.5rem 4rem; }
+.entry {
+  margin: 0; padding: 0 0 0 1rem;
+  border-left: 2px solid var(--rule);
+  color: var(--muted); font-size: 0.9375rem;
+}
+.entry b { display: block; font-weight: 500; color: var(--ink); font-size: 0.8125rem; letter-spacing: 0.02em; margin-bottom: 0.25rem; }
+.letter {
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: clamp(1.25rem, 5vw, 2.25rem);
+  box-shadow: 0 1px 0 var(--rule), 0 18px 40px -28px rgba(31, 42, 68, 0.45);
+  font-family: var(--serif);
+  font-size: var(--step-1);
+  line-height: 1.65;
+}
+.letter header { display: grid; gap: 0.2rem; margin-bottom: 1.25rem; }
+.letter h2 { font-size: var(--step-2); }
+.letter time { font: 400 0.8125rem/1.4 var(--sans); color: var(--muted); }
+.letter p { margin: 0 0 1rem; }
+.question {
+  margin: 1.25rem 0; padding: 1rem 1.25rem;
+  background: var(--amber-wash); border-radius: 4px;
+}
+.question .label { display: block; margin-bottom: 0.5rem; }
+.question p { margin: 0; font-style: italic; }
+.sign { text-align: right; font-style: italic; margin: 0; }
+.langs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; font: 500 0.8125rem/1 var(--sans); }
+.langs span { padding: 0.45rem 0.75rem; border: 1px solid var(--rule); border-radius: 999px; color: var(--muted); }
+.langs span[aria-current] { background: var(--ink); border-color: var(--ink); color: var(--sheet); }
+
+/* sections */
+section.block { padding-block: 3rem; border-top: 1px solid var(--rule); display: grid; gap: 1.5rem; }
+section.block > h2 { font-size: var(--step-2); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 2.25rem 1fr; gap: 0.75rem; counter-increment: step; }
+.steps li::before {
+  content: counter(step);
+  font: 500 var(--step-2)/1.1 var(--serif); font-style: italic; color: var(--amber);
+}
+.steps li > div { min-width: 0; }
+.steps h3, .features h3 { font: 600 var(--step-0)/1.4 var(--sans); }
+.steps p, .features p { margin: 0.2rem 0 0; color: var(--muted); }
+
+.circles { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem 2rem; }
+.circle h3 { font: 600 0.75rem/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.6rem; }
+.circle ul { list-style: none; margin: 0; padding: 0; font: 400 var(--step-1)/1.55 var(--serif); }
+.circle [lang="he"] { font-family: var(--he-serif); }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.5rem 2rem; }
+.features > div { min-width: 0; }
+
+.taglines { display: grid; gap: 0.4rem; font: italic 400 var(--step-1)/1.5 var(--serif); }
+.taglines [lang="he"] { font-family: var(--he-serif); font-style: normal; }
+
+footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.875rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .letter { animation: settle 700ms cubic-bezier(.2,.7,.2,1) both; animation-delay: 120ms; }
+  @keyframes settle { from { transform: translateY(10px) rotate(-0.4deg); } to { transform: none; } }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <a class="brand" href="./"><img src="icon.png" alt="" width="32" height="32">Letterlight</a>
+  <span class="soon">For Android</span>
+</header>
+
+<main>
+<section class="hero">
+  <span class="label">An AI journal</span>
+  <h1>Write it down. <em>Great minds write back.</em></h1>
+  <p>Tell Letterlight about your day. Seneca, Tolstoy, Rumi or Maimonides answers with a personal letter, and ends it with one question to carry into tomorrow.</p>
+  <div class="cta">
+    <span class="badge">Coming soon to Google Play</span>
+    <small>English · Русский · עברית</small>
+  </div>
+</section>
+
+<div class="sample" aria-label="An example entry and the letter that answers it">
+  <blockquote class="entry">
+    <b>Your entry, Tuesday evening</b>
+    Spent the whole day at my desk and got nothing done. I keep opening the same document and closing it again.
+  </blockquote>
+  <article class="letter">
+    <header>
+      <h2>A letter from Seneca</h2>
+      <time datetime="2026-10-20T21:14">Tue, 20 Oct 2026 · 21:14</time>
+    </header>
+    <p>My friend,</p>
+    <p>You write that the day felt wasted, that you sat at your desk and nothing moved. Yet you noticed it, and noticing is the first step back to yourself. Most people let such days pass without a glance.</p>
+    <div class="question">
+      <span class="label">A question to sit with</span>
+      <p>What would you do with one hour if no one could see the result?</p>
+    </div>
+    <p>Tomorrow, guard one hour as if it were the only one you owned.</p>
+    <p class="sign">Yours, Seneca</p>
+    <div class="langs" aria-label="Read this letter in">
+      <span aria-current="true">Original</span><span>English</span><span>Русский</span><span lang="he">עברית</span>
+    </div>
+  </article>
+</div>
+
+<section class="block" aria-labelledby="how">
+  <h2 id="how">How it works</h2>
+  <ol class="steps">
+    <li><div><h3>Write your entry</h3><p>A few lines or a few pages. Add how you feel today.</p></div></li>
+    <li><div><h3>Choose who reads it</h3><p>Pick a mentor, or Future You, the person you are becoming.</p></div></li>
+    <li><div><h3>Get a letter back</h3><p>A personal reply in their voice. Answer it and the conversation continues.</p></div></li>
+  </ol>
+</section>
+
+<section class="block" aria-labelledby="mentors">
+  <h2 id="mentors">Sixteen mentors from four traditions</h2>
+  <div class="circles">
+    <div class="circle"><h3>Ancient wisdom</h3><ul><li>Marcus Aurelius</li><li>Seneca</li><li>Lao Tzu</li><li>Rumi</li><li>Carl Jung</li><li>Future You</li></ul></div>
+    <div class="circle"><h3>Russian literature</h3><ul><li>Leo Tolstoy</li><li>Anton Chekhov</li><li>Fyodor Dostoevsky</li><li>Anna Akhmatova</li></ul></div>
+    <div class="circle"><h3>Jewish tradition</h3><ul><li>Maimonides</li><li>Hillel the Elder</li><li>Rabbi Nachman of Breslov</li><li>Leah Goldberg</li></ul></div>
+    <div class="circle"><h3>American thought</h3><ul><li>Ralph Waldo Emerson</li><li>Henry David Thoreau</li></ul></div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="more">
+  <h2 id="more">More than a reply</h2>
+  <div class="features">
+    <div><h3>Small practices</h3><p>Mentors can set you a short exercise drawn from CBT and remind you at the time you choose.</p></div>
+    <div><h3>A daily routine</h3><p>A walk, a meal, a short meditation. Your mentor reminds you, in their own voice.</p></div>
+    <div><h3>Your own sources</h3><p>Attach text, a web page, a PDF or a photo to an entry, and your mentor reads it before writing back.</p></div>
+    <div><h3>Three languages</h3><p>The app speaks English, Russian and Hebrew, and any letter can be translated with one tap.</p></div>
+    <div><h3>Kept on your phone</h3><p>Your journal is stored on your device, and there's no account to create. <a href="privacy.html">How your data is handled</a></p></div>
+    <div><h3>A writing streak</h3><p>See how many days in a row you've written.</p></div>
+  </div>
+</section>
+
+<section class="block" aria-label="The tagline in each language">
+  <div class="taglines">
+    <span>Write it down. Great minds write back.</span>
+    <span lang="ru">Запиши. Великие умы ответят.</span>
+    <span lang="he" dir="rtl">כתבו. גדולי הרוח יענו לכם.</span>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>© 2026 Letterlight</span>
+  <a href="privacy.html">Privacy policy</a>
+</footer>
+
+</div>
+</body>
+</html>
