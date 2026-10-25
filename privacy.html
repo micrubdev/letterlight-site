@@ -40,7 +40,7 @@ footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rul
 <main>
 <a href="./">← Letterlight</a>
 <h1>Privacy policy</h1>
-<p class="date">Last updated 20 October 2026</p>
+<p class="date">Last updated 25 October 2026</p>
 
 <p>Letterlight is a journal app for Android. This page explains what happens to what you write.</p>
 
@@ -48,12 +48,13 @@ footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rul
 <ul>
   <li>Your journal entries, moods, letters, replies, routine and practices are saved only in the app's storage on your device.</li>
   <li>Files you attach as sources (PDFs, images, text) are copied into the app's storage on your device.</li>
-  <li>Your Anthropic API key, if you enter one, is saved on your device.</li>
+  <li>Any API key you enter, and the address and model of another provider if you set one up, are saved on your device.</li>
+  <li>A usage log (how many tokens each request used, and what it was for) is kept on your device so you can see what letters cost.</li>
   <li>There is no Letterlight account and no Letterlight server. We never receive your journal.</li>
 </ul>
 
-<h2>What is sent to Anthropic</h2>
-<p>Letters are written by Claude, an AI model made by Anthropic. When you ask for a letter, a reply or a translation, the app sends these to Anthropic's API:</p>
+<h2>What is sent to the AI model</h2>
+<p>Letters are written by an AI model. By default this is Claude, made by Anthropic. When you ask for a letter, a reply or a translation, the app sends these to the model's provider:</p>
 <ul>
   <li>the entry and mood you're asking about, and the earlier letters and replies in that conversation;</li>
   <li>any sources attached to that entry;</li>
@@ -61,6 +62,9 @@ footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rul
   <li>for routine and practice reminders, the habit or exercise they are about.</li>
 </ul>
 <p>Anthropic processes this under its own terms and <a href="https://www.anthropic.com/legal/privacy" rel="noopener">privacy policy</a>. If you use your own API key, the requests go to Anthropic under your own account.</p>
+
+<h2>If you choose another provider</h2>
+<p>In Settings you can connect a different AI service instead: any server that speaks the OpenAI Chat Completions API, such as OpenAI or a model you run yourself. You enter its address, model and key. The app then sends the same information listed above to that address instead of to Anthropic, under your account with that service. That service's own terms and privacy policy apply. Letterlight doesn't choose, check or have access to it.</p>
 
 <h2>Web pages you add</h2>
 <p>When you add a web page as a source, the app downloads that page directly from its website once and keeps its text on your device.</p>
