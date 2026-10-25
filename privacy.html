@@ -50,7 +50,7 @@ footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rul
   <li>Files you attach as sources (PDFs, images, text) are copied into the app's storage on your device.</li>
   <li>Any API key you enter, and the address and model of another provider if you set one up, are saved on your device.</li>
   <li>A usage log (how many tokens each request used, and what it was for) is kept on your device so you can see what letters cost.</li>
-  <li>There is no Letterlight account and no Letterlight server. We never receive your journal.</li>
+  <li>Your invite code, and the device token Letterlight's server gives you for it, are saved on your device. There is no Letterlight account.</li>
 </ul>
 
 <h2>What is sent to the AI model</h2>
@@ -61,7 +61,16 @@ footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rul
   <li>the mentor you chose, your app language and the local date and time;</li>
   <li>for routine and practice reminders, the habit or exercise they are about.</li>
 </ul>
-<p>Anthropic processes this under its own terms and <a href="https://www.anthropic.com/legal/privacy" rel="noopener">privacy policy</a>. If you use your own API key, the requests go to Anthropic under your own account.</p>
+<p>Anthropic processes this under its own terms and <a href="https://www.anthropic.com/legal/privacy" rel="noopener">privacy policy</a>.</p>
+
+<h2>Letterlight's server</h2>
+<p>By default, these requests go through Letterlight's server, which runs on Cloudflare. It passes each request to Anthropic, using Letterlight's own Anthropic account, and returns the letter to your phone. This is why you don't need an API key of your own.</p>
+<ul>
+  <li>The server doesn't store your entries, letters, replies or sources, and doesn't write them to its logs.</li>
+  <li>To keep to daily limits and a budget, it keeps counts: a random device number given to your phone (shown in logs only in a shortened, scrambled form), the kind of request, how many tokens it used and what it cost.</li>
+  <li>Cloudflare carries the traffic under its own <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">privacy policy</a>.</li>
+</ul>
+<p>If you choose "My Anthropic key" in Settings, requests go from your phone straight to Anthropic under your own account, and Letterlight's server isn't involved.</p>
 
 <h2>If you choose another provider</h2>
 <p>In Settings you can connect a different AI service instead: any server that speaks the OpenAI Chat Completions API, such as OpenAI or a model you run yourself. You enter its address, model and key. The app then sends the same information listed above to that address instead of to Anthropic, under your account with that service. That service's own terms and privacy policy apply. Letterlight doesn't choose, check or have access to it.</p>
