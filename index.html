@@ -11,7 +11,7 @@
 <link rel="icon" href="icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Frank+Ruhl+Libre:wght@500&family=Heebo:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap">
 <style>
 /* Layout: one reading column, like a letter on a desk; the hero is a real letter from the app. */
 :root {
@@ -23,9 +23,8 @@
   --amber-wash: #F3E6D3;
   --rule: #E2D9C8;
   --sage: #5E7360;
-  --serif: "Lora", "Frank Ruhl Libre", Georgia, "Times New Roman", serif;
-  --sans: "Inter", "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --he-serif: "Frank Ruhl Libre", "Lora", Georgia, serif;
+  --serif: "Lora", Georgia, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --step-0: 1rem;
   --step-1: 1.1875rem;
   --step-2: 1.5rem;
@@ -117,9 +116,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; text-wrap: balance; ma
 .question .label { display: block; margin-bottom: 0.5rem; }
 .question p { margin: 0; font-style: italic; }
 .sign { text-align: right; font-style: italic; margin: 0; }
-.langs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; font: 500 0.8125rem/1 var(--sans); }
-.langs span { padding: 0.45rem 0.75rem; border: 1px solid var(--rule); border-radius: 999px; color: var(--muted); }
-.langs span[aria-current] { background: var(--ink); border-color: var(--ink); color: var(--sheet); }
 
 /* sections */
 section.block { padding-block: 3rem; border-top: 1px solid var(--rule); display: grid; gap: 1.5rem; }
@@ -137,13 +133,10 @@ section.block > h2 { font-size: var(--step-2); }
 .circles { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem 2rem; }
 .circle h3 { font: 600 0.75rem/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.6rem; }
 .circle ul { list-style: none; margin: 0; padding: 0; font: 400 var(--step-1)/1.55 var(--serif); }
-.circle [lang="he"] { font-family: var(--he-serif); }
 
 .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.5rem 2rem; }
 .features > div { min-width: 0; }
 
-.taglines { display: grid; gap: 0.4rem; font: italic 400 var(--step-1)/1.5 var(--serif); }
-.taglines [lang="he"] { font-family: var(--he-serif); font-style: normal; }
 
 footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.875rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
 
@@ -168,7 +161,6 @@ footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: v
   <p>Tell Letterlight about your day. Seneca, Tolstoy, Rumi or Maimonides answers with a personal letter, and ends it with one question to carry into tomorrow.</p>
   <div class="cta">
     <span class="badge">Coming soon to Google Play</span>
-    <small>English · Русский · עברית</small>
   </div>
 </section>
 
@@ -190,9 +182,6 @@ footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: v
     </div>
     <p>Tomorrow, guard one hour as if it were the only one you owned.</p>
     <p class="sign">Yours, Seneca</p>
-    <div class="langs" aria-label="Read this letter in">
-      <span aria-current="true">Original</span><span>English</span><span>Русский</span><span lang="he">עברית</span>
-    </div>
   </article>
 </div>
 
@@ -221,19 +210,11 @@ footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: v
     <div><h3>Small practices</h3><p>Mentors can set you a short exercise drawn from CBT and remind you at the time you choose.</p></div>
     <div><h3>A daily routine</h3><p>A walk, a meal, a short meditation. Your mentor reminds you, in their own voice.</p></div>
     <div><h3>Your own sources</h3><p>Attach text, a web page, a PDF or a photo to an entry, and your mentor reads it before writing back.</p></div>
-    <div><h3>Three languages</h3><p>The app speaks English, Russian and Hebrew, and any letter can be translated with one tap.</p></div>
     <div><h3>Kept on your phone</h3><p>Your journal is stored on your device, and there's no account to create. <a href="privacy.html">How your data is handled</a></p></div>
     <div><h3>A writing streak</h3><p>See how many days in a row you've written.</p></div>
   </div>
 </section>
 
-<section class="block" aria-label="The tagline in each language">
-  <div class="taglines">
-    <span>Write it down. Great minds write back.</span>
-    <span lang="ru">Запиши. Великие умы ответят.</span>
-    <span lang="he" dir="rtl">כתבו. גדולי הרוח יענו לכם.</span>
-  </div>
-</section>
 </main>
 
 <footer>
