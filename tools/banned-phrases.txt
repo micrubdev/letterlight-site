@@ -1,0 +1,21 @@
+# Phrases that mark text as machine-written. One per line; matched as whole words, ignoring case and typography.
+delve
+delving
+tapestry
+in today's fast-paced world
+it's important to note
+it is important to note
+navigate the complexities
+embark on a journey
+a testament to
+serves as a reminder
+a reminder that
+in the realm of
+unlock your potential
+journey of self-discovery
+let's dive in
+dive deep
+game-changer
+holistic
+resonate with you
+at the end of the day

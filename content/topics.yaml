@@ -1,0 +1,189 @@
+# Topic queue for letterlight-publish. status: queued | published | flagged (with note).
+- slug: letters/seneca-on-losing-your-job
+  type: letter
+  mentor: seneca
+  problem: losing-your-job
+  query: what would seneca say about losing your job
+  status: published
+- slug: letters/marcus-aurelius-on-losing-your-job
+  type: letter
+  mentor: marcus-aurelius
+  problem: losing-your-job
+  query: marcus aurelius on losing your job
+  status: published
+- slug: journaling-prompts/grief
+  type: guide
+  problem: grief
+  query: journaling prompts for grief
+  status: published
+- slug: letters/epictetus-on-losing-your-job
+  type: letter
+  mentor: epictetus
+  problem: losing-your-job
+  query: stoic advice after being laid off
+  status: queued
+- slug: letters/seneca-on-grief
+  type: letter
+  mentor: seneca
+  problem: grief
+  query: seneca on grief and loss
+  status: queued
+- slug: letters/rumi-on-grief
+  type: letter
+  mentor: rumi
+  problem: grief
+  query: rumi on grief after losing someone
+  status: queued
+- slug: letters/tolstoy-on-grief
+  type: letter
+  mentor: tolstoy
+  problem: grief
+  query: tolstoy on grief and death of a loved one
+  status: queued
+- slug: letters/marcus-aurelius-on-anxiety
+  type: letter
+  mentor: marcus-aurelius
+  problem: anxiety
+  query: marcus aurelius on anxiety
+  status: queued
+- slug: letters/lao-tzu-on-anxiety
+  type: letter
+  mentor: lao-tzu
+  problem: anxiety
+  query: tao te ching for anxiety
+  status: queued
+- slug: letters/buddha-on-anxiety
+  type: letter
+  mentor: buddha
+  problem: anxiety
+  query: buddhist advice for anxiety and worry
+  status: queued
+- slug: letters/thoreau-on-loneliness
+  type: letter
+  mentor: thoreau
+  problem: loneliness
+  query: thoreau on loneliness and solitude
+  status: queued
+- slug: letters/emerson-on-loneliness
+  type: letter
+  mentor: emerson
+  problem: loneliness
+  query: emerson on being alone
+  status: queued
+- slug: letters/chekhov-on-loneliness
+  type: letter
+  mentor: chekhov
+  problem: loneliness
+  query: how to cope with loneliness letter
+  status: queued
+- slug: journaling-prompts/anxiety
+  type: guide
+  problem: anxiety
+  query: journaling prompts for anxiety
+  status: queued
+- slug: journaling-prompts/gratitude
+  type: guide
+  problem: gratitude
+  query: gratitude journal prompts
+  status: queued
+- slug: journaling-prompts/burnout
+  type: guide
+  problem: burnout
+  query: journaling prompts for burnout
+  status: queued
+- slug: letters/seneca-on-burnout
+  type: letter
+  mentor: seneca
+  problem: burnout
+  query: seneca on overwork and burnout
+  status: queued
+- slug: letters/lao-tzu-on-burnout
+  type: letter
+  mentor: lao-tzu
+  problem: burnout
+  query: lao tzu on doing less burnout
+  status: queued
+- slug: letters/rumi-on-breakup
+  type: letter
+  mentor: rumi
+  problem: breakup
+  query: rumi on heartbreak after a breakup
+  status: queued
+- slug: letters/dostoevsky-on-breakup
+  type: letter
+  mentor: dostoevsky
+  problem: breakup
+  query: how to get over a breakup philosophy
+  status: queued
+- slug: letters/seneca-on-procrastination
+  type: letter
+  mentor: seneca
+  problem: procrastination
+  query: seneca on procrastination and wasted time
+  status: queued
+- slug: letters/marcus-aurelius-on-procrastination
+  type: letter
+  mentor: marcus-aurelius
+  problem: procrastination
+  query: marcus aurelius on getting out of bed procrastination
+  status: queued
+- slug: letters/epictetus-on-envy
+  type: letter
+  mentor: epictetus
+  problem: envy
+  query: stoic advice on envy and comparing yourself
+  status: queued
+- slug: letters/confucius-on-envy
+  type: letter
+  mentor: confucius
+  problem: envy
+  query: confucius on comparing yourself to others
+  status: queued
+- slug: letters/socrates-on-fear-of-death
+  type: letter
+  mentor: socrates
+  problem: fear-of-death
+  query: socrates on the fear of death
+  status: queued
+- slug: letters/tolstoy-on-fear-of-death
+  type: letter
+  mentor: tolstoy
+  problem: fear-of-death
+  query: tolstoy on fear of death meaning of life
+  status: queued
+- slug: letters/seneca-on-anger
+  type: letter
+  mentor: seneca
+  problem: anger
+  query: seneca on anger how to control it
+  status: queued
+- slug: letters/buddha-on-anger
+  type: letter
+  mentor: buddha
+  problem: anger
+  query: buddha on anger
+  status: queued
+- slug: letters/thoreau-on-starting-over
+  type: letter
+  mentor: thoreau
+  problem: starting-over
+  query: thoreau on starting over and simplifying life
+  status: queued
+- slug: letters/hillel-on-starting-over
+  type: letter
+  mentor: hillel
+  problem: starting-over
+  query: if not now when starting over in life
+  status: queued
+- slug: letters/confucius-on-caring-for-a-parent
+  type: letter
+  mentor: confucius
+  problem: caring-for-a-parent
+  query: confucius on caring for ageing parents
+  status: queued
+- slug: letters/maimonides-on-caring-for-a-parent
+  type: letter
+  mentor: maimonides
+  problem: caring-for-a-parent
+  query: jewish wisdom on caring for a parent
+  status: queued
