@@ -44,6 +44,16 @@ ogDescription: Write it down. Great minds write back.
   </article>
 </div>
 
+<section class="block" aria-labelledby="read">
+  <h2 id="read">Read a letter</h2>
+  <ul class="latest">
+  {%- for p in collections.letters | reverse %}{% if loop.index <= 6 %}
+    <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+  {%- endif %}{% endfor %}
+  </ul>
+  <p><a href="/letters/">All letters</a> · <a href="/journaling-prompts/">Journaling prompts</a></p>
+</section>
+
 <section class="block" aria-labelledby="how">
   <h2 id="how">How it works</h2>
   <ol class="steps">

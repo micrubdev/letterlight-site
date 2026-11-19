@@ -1,0 +1,24 @@
+---
+layout: base.njk
+bodyClass: doc
+permalink: /letters/
+title: "Letters from great minds on real problems | Letterlight"
+description: "Imagined letters in the voices of Seneca, Marcus Aurelius, Rumi, Tolstoy and more, on job loss, grief, anxiety and loneliness. Written with AI, with real quotes."
+---
+<main>
+{% include "page-top.njk" %}
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Letterlight</a> › <span>Letters</span></nav>
+<h1>Letters from great minds</h1>
+<p>Each letter is imagined: written with AI in the voice of a philosopher, poet or writer, answering one real problem. Every one ends with a real quote and questions to write about.</p>
+{%- for pr in collections.problemsWithLetters %}
+<section aria-labelledby="p-{{ pr.id }}">
+  <h2 id="p-{{ pr.id }}"><a href="/problems/{{ pr.id }}/">{{ pr.name }}</a></h2>
+  <ul>
+  {%- for p in collections.letters | byProblem(pr.id) %}
+    <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+  {%- endfor %}
+  </ul>
+</section>
+{%- endfor %}
+{% include "page-foot.njk" %}
+</main>

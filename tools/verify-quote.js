@@ -5,7 +5,10 @@ import fs from 'node:fs';
 import yaml from 'js-yaml';
 import { normalize } from './lib/text.js';
 
-export const quoteInText = (quote, text) => normalize(text).includes(normalize(quote));
+const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+/** True if the quote appears word for word, not starting or ending inside a word. Typography and spacing are ignored. */
+export const quoteInText = (quote, text) =>
+  new RegExp(`(?<![\\p{L}\\p{N}])${esc(normalize(quote))}(?![\\p{L}\\p{N}])`, 'u').test(normalize(text));
 
 const htmlToText = (html) =>
   html

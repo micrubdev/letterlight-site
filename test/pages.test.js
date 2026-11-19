@@ -47,3 +47,24 @@ test('guide has breadcrumb and links to letters on its problem only when they ex
   assert.match(h, /href="\/journaling-prompts\/"/);
   assert.doesNotMatch(h, /<ul[^>]*>\s*<\/ul>/);
 });
+test('home page links into the content', () => {
+  const h = read('index.html');
+  assert.match(h, /href="\/letters\/"/);
+  assert.match(h, /href="\/journaling-prompts\/"/);
+  assert.match(h, /href="\/letters\/seneca-on-losing-your-job\/"/);
+});
+test('letters index lists every letter grouped by problem, linking each problem hub', () => {
+  const h = read('letters/index.html');
+  assert.match(h, /href="\/letters\/epictetus-on-losing-your-job\/"/);
+  assert.match(h, /href="\/problems\/losing-your-job\/"/);
+});
+test('every content page footer links the letters and prompts indexes', () => {
+  for (const p of ['letters/seneca-on-losing-your-job/index.html', 'mentors/seneca/index.html', 'journaling-prompts/grief/index.html'])
+    assert.match(read(p), /<nav class="site-nav"[\s\S]*href="\/letters\/"[\s\S]*href="\/journaling-prompts\/"/, p);
+});
+test('a letter always links its problem hub, even when it is the only letter on it', () => {
+  assert.match(letter(), /href="\/problems\/losing-your-job\/"/);
+});
+test('a quote that starts mid-sentence is shown with a leading ellipsis', () => {
+  assert.match(read('letters/marcus-aurelius-on-losing-your-job/index.html'), /<blockquote class="quote"><p>…the mind converts/);
+});

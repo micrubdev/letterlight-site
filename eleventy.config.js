@@ -2,21 +2,22 @@ import fs from 'node:fs';
 import yaml from 'js-yaml';
 import rss from '@11ty/eleventy-plugin-rss';
 
-const mentors = JSON.parse(fs.readFileSync('src/_data/mentors.json', 'utf8'));
-const problems = JSON.parse(fs.readFileSync('src/_data/problems.json', 'utf8'));
+// LL_INPUT lets a test build a modified copy of src/ without touching the real one.
+const input = process.env.LL_INPUT || 'src';
+const mentors = JSON.parse(fs.readFileSync(`${input}/_data/mentors.json`, 'utf8'));
+const problems = JSON.parse(fs.readFileSync(`${input}/_data/problems.json`, 'utf8'));
 const byDate = (a, b) => a.date - b.date;
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(rss);
   eleventyConfig.addFilter('concat', (a, b) => [...a, ...b]);
-  for (const p of ['src/assets', 'src/icon.png', 'src/CNAME', 'src/.nojekyll'])
-    eleventyConfig.addPassthroughCopy(p);
+  for (const p of ['assets', 'icon.png', 'CNAME', '.nojekyll']) eleventyConfig.addPassthroughCopy(`${input}/${p}`);
 
   // The quote bank lives outside src/ so it is never published.
   eleventyConfig.addGlobalData('quotes', () => yaml.load(fs.readFileSync('content/quotes.yaml', 'utf8')) ?? []);
 
-  const letters = (api) => api.getFilteredByGlob('src/letters/*.md').sort(byDate);
-  const guides = (api) => api.getFilteredByGlob('src/journaling-prompts/*.md').sort(byDate);
+  const letters = (api) => api.getFilteredByGlob(`${input}/letters/*.md`).sort(byDate);
+  const guides = (api) => api.getFilteredByGlob(`${input}/journaling-prompts/*.md`).sort(byDate);
   eleventyConfig.addCollection('letters', letters);
   eleventyConfig.addCollection('guides', guides);
   eleventyConfig.addCollection('mentorsWithLetters', (api) => {
@@ -35,7 +36,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('isoDate', (d) => new Date(d).toISOString().slice(0, 10));
 
   return {
-    dir: { input: 'src', output: '_site', includes: '_includes', data: '_data' },
+    dir: { input, output: process.env.LL_OUTPUT || '_site', includes: '_includes', data: '_data' },
     templateFormats: ['njk', 'md'],
     markdownTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',

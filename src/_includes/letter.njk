@@ -13,7 +13,7 @@ layout: base.njk
   {%- if quoteData %}
   <figure class="real-quote">
     <figcaption>In {{ mentorData.possessive }} own words</figcaption>
-    <blockquote class="quote"><p>{{ quoteData.text }}</p></blockquote>
+    <blockquote class="quote"><p>{% if quoteData.text[0] != quoteData.text[0] | upper %}…{% endif %}{{ quoteData.text }}</p></blockquote>
     <p class="source"><cite>{{ quoteData.work }}</cite>, {{ quoteData.location }}. Translated by {{ quoteData.translation }}.</p>
   </figure>
   {%- endif %}
@@ -26,7 +26,8 @@ layout: base.njk
     </ol>
   </section>
 </article>
-{%- if sensitive %}{% include "crisis.njk" %}{% endif %}
+{%- if sensitive or problemData.sensitive %}{% include "crisis.njk" %}{% endif %}
+<p class="problem-link"><a href="/problems/{{ problem }}/">Every letter on {{ problemData.name | lower }}</a></p>
 {% include "related.njk" %}
 {% include "page-foot.njk" %}
 </main>

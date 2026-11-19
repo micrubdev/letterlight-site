@@ -106,3 +106,8 @@ test('quoteInText matches a real source with curly apostrophes and odd spaces', 
   assert.ok(quoteInText('There are more things,  Lucilius,\nlikely to frighten us', src));
   assert.ok(!quoteInText("his opponent's hand, who has been tripped", src));
 });
+test('quoteInText rejects a quote cut or changed at a word edge', () => {
+  assert.ok(!quoteInText('happy indeed.', 'he is unhappy indeed.'));
+  assert.ok(!quoteInText('ever say of anything', 'Never say of anything'));
+  assert.ok(quoteInText('say of anything', 'Never say of anything, ok'));
+});

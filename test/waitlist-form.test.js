@@ -37,7 +37,12 @@ test('submitWaitlist sends JSON and reports done on 200', async () => {
 test('submitWaitlist reports error on network failure', async () => {
   assert.equal(await submitWaitlist(form, async () => { throw new TypeError('offline'); }), 'error');
 });
-test('submitWaitlist reports error on 429 and 400', async () => {
-  assert.equal(await submitWaitlist(form, async () => ({ ok: false, status: 429 })), 'error');
-  assert.equal(await submitWaitlist(form, async () => ({ ok: false, status: 400 })), 'error');
+test('submitWaitlist reports error on 500 and 503', async () => {
+  assert.equal(await submitWaitlist(form, async () => ({ ok: false, status: 500 })), 'error');
+  assert.equal(await submitWaitlist(form, async () => ({ ok: false, status: 503 })), 'error');
+});
+test('submitWaitlist tells a bad email and rate limit apart from a network failure', async () => {
+  assert.equal(await submitWaitlist(form, async () => ({ ok: false, status: 400 })), 'email');
+  assert.equal(await submitWaitlist(form, async () => ({ ok: false, status: 429 })), 'rate');
+  assert.equal(await submitWaitlist(form, async () => ({ ok: false, status: 500 })), 'error');
 });
