@@ -26,5 +26,6 @@ test('privacy policy covers the waitlist at #waitlist', () => {
   const html = fs.readFileSync('_site/privacy.html', 'utf8');
   assert.match(html, /<h2 id="waitlist">Beta waitlist<\/h2>/);
   assert.match(html, /never sold/);
+  assert.match(html, /scrambled form of your IP address/);
   assert.match(html, /Last updated 19 November 2026/);
 });
