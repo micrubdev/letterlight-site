@@ -34,7 +34,7 @@ approved mockup is `.superpowers/brainstorm/*/content/letter-page-v2.html` (not 
 
 | | Approach | Trade-off | Outcome |
 |---|---|---|---|
-| A | The layout renders the dateline, sign-off and signature from front matter (`signoff`, optional `signature`). Sign-off lines are removed from the letter bodies. | Every letter ends the same way, and the check can enforce it. Needs a one-time edit to 13 letters. | **Chosen (my call; the user handed over the how)** |
+| A | The layout renders the dateline, sign-off and signature from front matter (`signoff`, optional `signature`). Sign-off lines are removed from the letter bodies. | Every letter ends the same way, and the check can enforce it. Needs a one-time edit to 12 letters. | **Chosen (my call; the user handed over the how)** |
 | B | CSS only: style the last one or two paragraphs of each body as the sign-off. | No content edits. But the letters end in different shapes (some with "Farewell.", some with initials, some with nothing), so the result breaks unpredictably. | Rejected |
 | C | Markers inside the Markdown (an attributes plugin) for the sign-off paragraphs. | Precise, but adds a dependency, and every writer and every run must remember the syntax. | Rejected |
 
@@ -78,7 +78,7 @@ contrast at 12.5–14px.
 
 ## Content migration (one time)
 
-For each of the 13 letters:
+For each of the 12 letters (8 live, plus the 4 waiting to publish):
 - remove the trailing sign-off lines from the body ("Farewell.", "With affection, / L. T.",
   and so on);
 - move them into `signoff` and, where it differs from the mentor's name, `signature`;
