@@ -1,0 +1,16 @@
+<section class="waitlist-box" aria-labelledby="wl-h">
+  <h2 id="wl-h">Get these letters about your own life</h2>
+  <p>Letterlight is an AI journal for Android. Write about your day, and a mentor like Seneca or Rumi writes back. Join the beta waitlist and we'll email you when it opens.</p>
+  <form class="waitlist" method="post" action="{{ site.apiBase }}/v1/waitlist">
+    <label for="wl-email">Email</label>
+    <div class="waitlist-row">
+      <input id="wl-email" type="email" name="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
+      <button type="submit">Join the waitlist</button>
+    </div>
+    <input type="hidden" name="page" value="{{ page.url }}">
+    <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+    <p class="waitlist-error" role="alert"></p>
+    <p class="waitlist-note">One email when the beta opens. <a href="/privacy.html#waitlist">How we handle it</a>.</p>
+  </form>
+  <script type="module" src="/assets/waitlist.js" defer></script>
+</section>

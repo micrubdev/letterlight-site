@@ -165,3 +165,17 @@ footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: v
 .related { margin-top: 2.5rem; }
 .related-guide { margin-top: 1.5rem; }
 .guide ul { list-style: square; }
+
+/* Waitlist form. */
+.waitlist-box { margin: 2.5rem 0; padding: 1.25rem 1.5rem; background: var(--amber-wash); border-radius: 12px; }
+.waitlist-box h2 { margin: 0 0 0.5rem; font-size: var(--step-2); }
+.waitlist label[for] { display: block; font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem; }
+.waitlist-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.waitlist input[type=email] { flex: 1 1 14rem; min-width: 0; font: inherit; padding: 0.6rem 0.75rem; border: 1px solid var(--rule); border-radius: 8px; background: var(--sheet); color: var(--ink); }
+.waitlist button { font: inherit; font-weight: 600; padding: 0.6rem 1.1rem; border: 0; border-radius: 8px; background: var(--ink); color: var(--paper); cursor: pointer; }
+.waitlist button:disabled { opacity: 0.6; }
+.waitlist .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.waitlist-error:empty { display: none; }
+.waitlist-error { color: #A33; margin: 0.5rem 0 0; }
+.waitlist-note { font-size: 0.8125rem; color: var(--muted); margin: 0.5rem 0 0; }
+.waitlist-done { font-weight: 600; }
