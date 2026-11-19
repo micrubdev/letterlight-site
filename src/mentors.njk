@@ -1,0 +1,27 @@
+---
+layout: base.njk
+bodyClass: doc
+pagination:
+  data: collections.mentorsWithLetters
+  size: 1
+  alias: m
+permalink: "/mentors/{{ m.id }}/"
+eleventyComputed:
+  title: "Letters from {{ m.name }} | Letterlight"
+  description: "Imagined letters in the voice of {{ m.name }}, {{ m.role | lower }}, on real problems: written with AI, with real quotes and journaling questions."
+---
+<main>
+{% include "page-top.njk" %}
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Letterlight</a> › <span>{{ m.name }}</span></nav>
+<h1>Letters from {{ m.name }}</h1>
+<p>{{ m.role }}. Each letter is imagined, written with AI in {{ m.possessive }} voice, and answers one real problem.</p>
+<section aria-labelledby="hub-letters">
+  <h2 id="hub-letters">Letters</h2>
+  <ul>
+  {%- for p in collections.letters | byMentor(m.id) %}
+    <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+  {%- endfor %}
+  </ul>
+</section>
+{% include "page-foot.njk" %}
+</main>

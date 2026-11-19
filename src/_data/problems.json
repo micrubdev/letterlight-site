@@ -1,0 +1,18 @@
+[
+  { "id": "losing-your-job", "name": "Losing your job", "query": "how to cope with losing your job", "sensitive": false, "abuse": false },
+  { "id": "grief", "name": "Grief", "query": "how to deal with grief", "sensitive": true, "abuse": false },
+  { "id": "anxiety", "name": "Anxiety", "query": "how to calm anxiety", "sensitive": false, "abuse": false },
+  { "id": "loneliness", "name": "Loneliness", "query": "how to deal with loneliness", "sensitive": false, "abuse": false },
+  { "id": "gratitude", "name": "Gratitude", "query": "gratitude journaling", "sensitive": false, "abuse": false },
+  { "id": "burnout", "name": "Burnout", "query": "how to recover from burnout", "sensitive": false, "abuse": false },
+  { "id": "breakup", "name": "A breakup", "query": "how to get over a breakup", "sensitive": false, "abuse": false },
+  { "id": "procrastination", "name": "Procrastination", "query": "how to stop procrastinating", "sensitive": false, "abuse": false },
+  { "id": "envy", "name": "Envy", "query": "how to stop comparing yourself to others", "sensitive": false, "abuse": false },
+  { "id": "fear-of-death", "name": "Fear of death", "query": "how to stop being afraid of death", "sensitive": false, "abuse": false },
+  { "id": "anger", "name": "Anger", "query": "how to control anger", "sensitive": false, "abuse": false },
+  { "id": "starting-over", "name": "Starting over", "query": "how to start over in life", "sensitive": false, "abuse": false },
+  { "id": "caring-for-a-parent", "name": "Caring for an ageing parent", "query": "caregiver stress caring for a parent", "sensitive": false, "abuse": false },
+  { "id": "depression", "name": "Depression", "query": "what to do when you feel depressed", "sensitive": true, "abuse": false },
+  { "id": "addiction", "name": "Addiction", "query": "how to stop an addiction", "sensitive": true, "abuse": false },
+  { "id": "abuse", "name": "Abuse at home", "query": "how to leave an abusive relationship", "sensitive": true, "abuse": true }
+]

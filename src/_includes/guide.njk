@@ -1,0 +1,24 @@
+---
+layout: base.njk
+---
+<main>
+{% include "page-top.njk" %}
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Letterlight</a> › <a href="/journaling-prompts/">Journaling prompts</a> › <span>{{ problemData.name }}</span></nav>
+<article class="guide">
+  <h1>{{ title }}</h1>
+{{ content | safe }}
+</article>
+{%- if sensitive %}{% include "crisis.njk" %}{% endif %}
+{%- set letters = collections.letters | byProblem(problem) %}
+{%- if letters.length %}
+<section class="related" aria-labelledby="rel-letters">
+  <h2 id="rel-letters">Letters from mentors on {{ problemData.name | lower }}</h2>
+  <ul>
+  {%- for p in letters %}
+    <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+  {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+{% include "page-foot.njk" %}
+</main>

@@ -1,0 +1,18 @@
+{
+  "checked": "2026-10-25 (copied from the app's lib/helplines.dart)",
+  "general": [
+    { "region": "United States", "name": "988 Suicide & Crisis Lifeline", "phone": "988", "note": "call or text" },
+    { "region": "Canada", "name": "9-8-8 Suicide Crisis Helpline", "phone": "988", "note": "call or text" },
+    { "region": "United Kingdom and Ireland", "name": "Samaritans", "phone": "116 123", "note": "free, 24/7" },
+    { "region": "Australia", "name": "Lifeline", "phone": "13 11 14", "note": "24/7" },
+    { "region": "Israel", "name": "ERAN", "phone": "1201", "note": "24/7" }
+  ],
+  "abuse": [
+    { "region": "United States", "name": "National Domestic Violence Hotline", "phone": "1-800-799-7233", "note": "24/7; text START to 88788" },
+    { "region": "England", "name": "National Domestic Abuse Helpline", "phone": "0808 2000 247", "note": "free, 24/7" },
+    { "region": "Ireland", "name": "Women's Aid", "phone": "1800 341 900", "note": "free, 24/7" },
+    { "region": "Australia", "name": "1800RESPECT", "phone": "1800 737 732", "note": "24/7" },
+    { "region": "Israel", "name": "Ministry of Welfare hotline", "phone": "118", "note": "24/7" }
+  ],
+  "directory": { "name": "Find A Helpline", "url": "https://findahelpline.com" }
+}

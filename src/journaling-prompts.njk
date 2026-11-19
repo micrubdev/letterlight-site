@@ -1,0 +1,18 @@
+---
+layout: base.njk
+bodyClass: doc
+permalink: /journaling-prompts/
+title: Journaling prompts | Letterlight
+description: Journaling prompts for grief, anxiety, gratitude and more, each linked to letters from great minds on the same theme.
+---
+<main>
+{% include "page-top.njk" %}
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Letterlight</a> › <span>Journaling prompts</span></nav>
+<h1>Journaling prompts</h1>
+<ul>
+{%- for p in collections.guides %}
+  <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+{%- endfor %}
+</ul>
+{% include "page-foot.njk" %}
+</main>

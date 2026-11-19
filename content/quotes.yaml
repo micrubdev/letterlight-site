@@ -1,0 +1,17 @@
+# Every quote must appear word for word in its public-domain source_url (checked by tools/verify-quote.js).
+- id: seneca-imagination
+  mentor: seneca
+  text: "There are more things, Lucilius, likely to frighten us than there are to crush us; we suffer more often in imagination than in reality."
+  work: Moral Letters to Lucilius
+  location: Letter 13
+  translation: Richard Mott Gummere (1917)
+  source_url: https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_13
+  verified: 2026-11-19
+- id: marcus-obstacle-road
+  mentor: marcus-aurelius
+  text: "the mind converts and changes every hindrance to its activity into an aid; and so that which is a hindrance is made a furtherance to an act; and that which is an obstacle on the road helps us on this road."
+  work: Meditations
+  location: Book V, 20
+  translation: George Long (1862)
+  source_url: https://en.wikisource.org/wiki/The_Thoughts_of_the_Emperor_Marcus_Aurelius_Antoninus/Book_V
+  verified: 2026-11-19

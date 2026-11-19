@@ -145,3 +145,23 @@ footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: v
 .doc ul { padding-left: 1.25rem; }
 .doc li + li { margin-top: 0.35rem; }
 .doc footer { display: block; margin-top: 3rem; padding: 1.25rem 0 0; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.875rem; }
+
+/* Letters, guides and hubs. */
+.doc .doc-mast { padding-block: 0 1rem; }
+.crumbs { font-size: 0.875rem; color: var(--muted); }
+.crumbs a { color: var(--muted); }
+.ai-label { font-size: 0.875rem; color: var(--muted); font-style: italic; border-left: 3px solid var(--amber-wash); padding-left: 0.75rem; }
+.letter-body { font-family: var(--serif); font-size: var(--step-1); line-height: 1.7; }
+.letter-body p:last-child { font-style: italic; }
+.real-quote { margin: 2.5rem 0; padding: 1.25rem 1.5rem; background: var(--sheet); border: 1px solid var(--rule); border-radius: 12px; }
+.real-quote figcaption { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); font-weight: 600; }
+.real-quote blockquote { margin: 0.5rem 0; font-family: var(--serif); font-size: var(--step-1); }
+.real-quote blockquote p { margin: 0; }
+.real-quote .source { margin: 0; font-size: 0.875rem; color: var(--muted); }
+.prompts ol { padding-left: 1.25rem; }
+.prompt { margin-bottom: 0.5rem; }
+.crisis { margin: 2.5rem 0; padding: 1rem 1.25rem; border: 2px solid var(--sage); border-radius: 12px; background: var(--sheet); }
+.crisis h2 { margin-top: 0; }
+.related { margin-top: 2.5rem; }
+.related-guide { margin-top: 1.5rem; }
+.guide ul { list-style: square; }

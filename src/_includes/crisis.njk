@@ -1,0 +1,15 @@
+<aside class="crisis" aria-labelledby="crisis-h">
+  <h2 id="crisis-h">If you need someone now</h2>
+  <p>This page is not a substitute for help from a person. If you are in danger or thinking about ending your life, call your local emergency number or one of these lines:</p>
+  <ul>
+  {%- if problemData and problemData.abuse %}
+  {%- for h in helplines.abuse %}
+    <li><strong>{{ h.region }}:</strong> {{ h.name }}, <a href="tel:{{ h.phone | replace(' ', '') }}">{{ h.phone }}</a> ({{ h.note }})</li>
+  {%- endfor %}
+  {%- endif %}
+  {%- for h in helplines.general %}
+    <li><strong>{{ h.region }}:</strong> {{ h.name }}, <a href="tel:{{ h.phone | replace(' ', '') }}">{{ h.phone }}</a> ({{ h.note }})</li>
+  {%- endfor %}
+  </ul>
+  <p>Elsewhere: <a href="{{ helplines.directory.url }}" rel="noopener">{{ helplines.directory.name }}</a> lists free lines in most countries.</p>
+</aside>

@@ -1,0 +1,49 @@
+import { test, before } from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { build } from './_build.js';
+
+before(build);
+const read = (p) => fs.readFileSync(`_site/${p}`, 'utf8');
+const letter = () => read('letters/seneca-on-losing-your-job/index.html');
+
+test('letter carries AI label, real quote with source, three prompts', () => {
+  const h = letter();
+  assert.match(h, /An imagined letter, written with AI in the voice of Seneca\. Not his own words\./);
+  assert.match(h, /<blockquote[^>]*class="quote"/);
+  assert.match(h, /<cite>/);
+  assert.equal((h.match(/class="prompt"/g) || []).length, 3);
+});
+test('letter has Article and BreadcrumbList JSON-LD', () => {
+  const ld = [...letter().matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map((m) => JSON.parse(m[1]));
+  assert.deepEqual(ld.map((x) => x['@type']).sort(), ['Article', 'BreadcrumbList']);
+});
+test('same-problem and same-mentor links, never to itself', () => {
+  const h = letter();
+  assert.match(h, /href="\/letters\/marcus-aurelius-on-losing-your-job\/"/);
+  assert.doesNotMatch(h, /href="\/letters\/seneca-on-losing-your-job\/"/);
+});
+test('hub with one letter has no empty sections', () => {
+  const h = read('mentors/seneca/index.html');
+  assert.match(h, /href="\/letters\/seneca-on-losing-your-job\/"/);
+  assert.doesNotMatch(h, /<section[^>]*>\s*<h2[^>]*>[^<]*<\/h2>\s*<\/section>/);
+  assert.doesNotMatch(h, /<ul[^>]*>\s*<\/ul>/);
+});
+test('sensitive pages always show the crisis box; others do not', () => {
+  assert.match(read('journaling-prompts/grief/index.html'), /class="crisis"/);
+  assert.doesNotMatch(letter(), /class="crisis"/);
+});
+test('problem hub lists both mentors', () => {
+  const h = read('problems/losing-your-job/index.html');
+  assert.match(h, /Seneca/);
+  assert.match(h, /Marcus Aurelius/);
+});
+test('hubs exist only for mentors and problems that have letters', () => {
+  assert.ok(!fs.existsSync('_site/mentors/rumi/index.html'));
+  assert.ok(!fs.existsSync('_site/problems/loneliness/index.html'));
+});
+test('guide has breadcrumb and links to letters on its problem only when they exist', () => {
+  const h = read('journaling-prompts/grief/index.html');
+  assert.match(h, /href="\/journaling-prompts\/"/);
+  assert.doesNotMatch(h, /<ul[^>]*>\s*<\/ul>/);
+});

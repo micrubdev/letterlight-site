@@ -1,0 +1,32 @@
+---
+layout: base.njk
+---
+<main>
+{% include "page-top.njk" %}
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Letterlight</a> › <a href="/mentors/{{ mentor }}/">{{ mentorData.name }}</a> › <span>{{ problemData.name }}</span></nav>
+<article>
+  <h1>{{ title }}</h1>
+  <p class="ai-label">An imagined letter, written with AI in the voice of {{ mentorData.name }}. Not {{ mentorData.possessive }} own words.</p>
+  <div class="letter-body">
+{{ content | safe }}
+  </div>
+  {%- if quoteData %}
+  <figure class="real-quote">
+    <figcaption>In {{ mentorData.possessive }} own words</figcaption>
+    <blockquote class="quote"><p>{{ quoteData.text }}</p></blockquote>
+    <p class="source"><cite>{{ quoteData.work }}</cite>, {{ quoteData.location }}. Translated by {{ quoteData.translation }}.</p>
+  </figure>
+  {%- endif %}
+  <section class="prompts" aria-labelledby="prompts-h">
+    <h2 id="prompts-h">Questions to write about</h2>
+    <ol>
+    {%- for q in prompts %}
+      <li class="prompt">{{ q }}</li>
+    {%- endfor %}
+    </ol>
+  </section>
+</article>
+{%- if sensitive %}{% include "crisis.njk" %}{% endif %}
+{% include "related.njk" %}
+{% include "page-foot.njk" %}
+</main>

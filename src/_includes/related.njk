@@ -1,0 +1,27 @@
+{%- set sameProblem = collections.letters | byProblem(problem, page.url) -%}
+{%- set sameMentor = (collections.letters | byMentor(mentor, page.url)) if mentor else [] -%}
+{%- set guide = collections.guides | byProblem(problem, page.url) -%}
+{%- if sameProblem.length %}
+<section class="related" aria-labelledby="rel-problem">
+  <h2 id="rel-problem">Other mentors on {{ problemData.name | lower }}</h2>
+  <ul>
+  {%- for p in sameProblem %}
+    <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+  {%- endfor %}
+  </ul>
+  <p><a href="/problems/{{ problem }}/">Every letter on {{ problemData.name | lower }}</a></p>
+</section>
+{%- endif %}
+{%- if sameMentor.length %}
+<section class="related" aria-labelledby="rel-mentor">
+  <h2 id="rel-mentor">More from {{ mentorData.name }}</h2>
+  <ul>
+  {%- for p in sameMentor %}
+    <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+  {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+{%- if guide.length %}
+<p class="related-guide">Write about it yourself: <a href="{{ guide[0].url }}">{{ guide[0].data.title }}</a></p>
+{%- endif %}
