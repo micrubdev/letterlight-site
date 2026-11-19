@@ -33,6 +33,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('byProblem', (pages, id, exceptUrl) => pages.filter((p) => p.data.problem === id && p.url !== exceptUrl));
   eleventyConfig.addFilter('mentor', (id) => mentors.find((m) => m.id === id));
   eleventyConfig.addFilter('problem', (id) => problems.find((p) => p.id === id));
+  eleventyConfig.addFilter('longDate', (d) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }));
   eleventyConfig.addFilter('isoDate', (d) => new Date(d).toISOString().slice(0, 10));
 
   return {

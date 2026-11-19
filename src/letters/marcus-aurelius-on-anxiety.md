@@ -9,6 +9,7 @@ prompts:
   - "Write down the worry that is loudest right now. Then write what is actually happening in this room, in this minute."
   - "Think of a time you were sure something would go badly. What actually happened, and how did you cope?"
   - "What is one thing in the next hour that is fully within your control? Describe how you will do it well."
+signoff: "Be well."
 sensitive: false
 date: 2026-11-19
 ---
@@ -31,5 +32,3 @@ Fourth, be patient with your body. Fear lives in the chest and the stomach as mu
 And if the worry grows so large that it rules your days, if you cannot work or eat or rest, then go to a physician as you would for any other illness. I relied on my doctor Galen more than once. There is no shame in letting a skilled person help you carry something heavy.
 
 Tonight, when the thoughts start, try saying to yourself: that is not happening now. Now I am lying in a bed, and I am breathing, and nothing is required of me until morning. Then let the morning take care of itself. It always arrives, and you will be there to meet it.
-
-Be well.

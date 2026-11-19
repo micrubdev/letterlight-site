@@ -4,11 +4,14 @@ layout: base.njk
 <main>
 {% include "page-top.njk" %}
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Letterlight</a> › <a href="/mentors/{{ mentor }}/">{{ mentorData.name }}</a> › <span>{{ problemData.name }}</span></nav>
-<article>
+<article class="letter-page">
   <h1>{{ title }}</h1>
   <p class="ai-label">An imagined letter, written with AI in the voice of {{ mentorData.name }}. Not {{ mentorData.possessive }} own words.</p>
-  <div class="letter-body">
+  <div class="letter-body sheet">
+    <p class="dateline"><time datetime="{{ date | isoDate }}">{{ date | longDate }}</time></p>
 {{ content | safe }}
+    <p class="signoff">{{ signoff }}</p>
+    <p class="signature">{{ signature or mentorData.name }}</p>
   </div>
   {%- if quoteData %}
   <figure class="real-quote">

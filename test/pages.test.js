@@ -75,3 +75,15 @@ test('a letter always links its problem hub, even when it is the only letter on 
 test('a quote that starts mid-sentence is shown with a leading ellipsis', () => {
   assert.match(read('letters/marcus-aurelius-on-losing-your-job/index.html'), /<blockquote class="quote"><p>…the mind converts/);
 });
+test('letter sheet has dateline, signoff and signature, quote after the sheet', () => {
+  const h = letter();
+  assert.match(h, /<div class="letter-body sheet">\s*<p class="dateline"><time datetime="2026-11-19">19 November 2026<\/time><\/p>/);
+  assert.match(h, /<p class="signoff">Farewell\.<\/p>\s*<p class="signature">Seneca<\/p>\s*<\/div>/);
+  assert.doesNotMatch(h, /<p>Farewell\.<\/p>/);
+  assert.ok(h.indexOf('class="real-quote"') > h.indexOf('class="signature"'));
+  assert.match(h, /<article class="letter-page">/);
+});
+test('signature falls back to mentor name, or uses front matter signature', () => {
+  assert.match(read('letters/seneca-on-grief/index.html'), /<p class="signature">Seneca<\/p>/);
+  assert.match(read('letters/tolstoy-on-grief/index.html'), /<p class="signature">L\. T\.<\/p>/);
+});

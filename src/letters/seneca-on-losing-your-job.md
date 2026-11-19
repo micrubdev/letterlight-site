@@ -9,6 +9,7 @@ prompts:
   - "Which part of losing this job frightens you most: the money, what people will think, or not knowing who you are without it?"
   - "Write down one thing the job was quietly costing you that you have only noticed since it ended."
   - "If a friend lost their job tomorrow, what would you tell them to do on their first free Monday?"
+signoff: "Farewell."
 sensitive: false
 date: 2026-11-19
 ---
@@ -33,5 +34,3 @@ Last, a small exercise, the kind I set myself. Once this week, spend a day livin
 You will work again, and probably soon. When you do, I hope you take with you what this gap can teach: that you are more than the door your badge opens, and that the worst of most troubles happens in the mind before it happens anywhere else.
 
 Write to me when you have sent the first ten applications. I want to hear which one you were proudest of.
-
-Farewell.

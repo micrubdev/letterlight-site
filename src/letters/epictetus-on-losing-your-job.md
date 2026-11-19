@@ -9,6 +9,7 @@ prompts:
   - "Make two lists: what in this situation is up to you, and what is not. Which list have you spent this week thinking about?"
   - "What story are you telling yourself about why this happened? Write it down, then write what a fair stranger would say instead."
   - "If you treated the job as something you borrowed and have now given back, what would you want to thank it for?"
+signoff: "Be steady."
 sensitive: false
 date: 2026-11-19
 ---

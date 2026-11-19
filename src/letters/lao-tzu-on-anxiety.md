@@ -9,6 +9,7 @@ prompts:
   - "What are you trying to force right now? Write what would happen if you stopped pushing for one day."
   - "Describe a moment when you felt completely still. Where were you? What was around you?"
   - "If your anxiety were weather, what kind would it be today? What does that weather need in order to pass?"
+signoff: "Softly,"
 sensitive: false
 date: 2026-11-19
 ---
@@ -43,6 +44,3 @@ Go outside when you can. Trees, wind, a patch of sky between buildings. Nature i
 And if the mud is so thick that you cannot see at all, if days go by and nothing settles, ask for help from someone skilled in such things. A good doctor, a good counsellor. Even the wise do not cross every river alone.
 
 You do not need to become calm today. You only need to stop stirring. Stillness will find you. It always does, when we stop chasing it.
-
-Softly,
-Lao Tzu

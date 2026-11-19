@@ -9,6 +9,7 @@ prompts:
   - "List what was taken from you with the job, and next to it what was not. Which column is longer?"
   - "What did you do well in that role that no one can take back, whatever the company decides?"
   - "What is one small, useful act you can do before noon tomorrow that has nothing to do with being employed?"
+signoff: "Be well."
 sensitive: false
 date: 2026-11-19
 ---
@@ -32,4 +33,4 @@ In the mornings, when you do not want to rise, remind yourself what you are risi
 
 When the next door opens, and it will, walk through it as the same person who walked out of the last one. That person is still here, and still capable.
 
-Be well. Keep to your duty. The rest is weather.
+Keep to your duty. The rest is weather.

@@ -9,6 +9,8 @@ prompts:
   - "What is one kindness they did for you that no one else knows about?"
   - "Is there something you wish you had said or done? Write it now, as if they could read it."
   - "What small, kind act could you do this week in their name, for someone who needs it?"
+signoff: "With affection,"
+signature: "L. T."
 sensitive: true
 date: 2026-11-19
 ---
@@ -29,6 +31,3 @@ This is what I would ask you to do with your grief: let it become love that goes
 Meanwhile, be gentle with yourself. Work with your hands if you can. I have always found that digging, chopping wood, walking a long way, calms a mind that thought alone only stirs up. Speak about him to people who knew him. Let yourself be looked after. And if the nights become too long and too dark, if you begin to feel that you cannot go on, tell someone at once. A friend, a doctor, a stranger at the end of a telephone line. Think of it as the same love, turned toward yourself.
 
 We do not live for ourselves alone, my friend. We live by love, and your father's love has not left you. It has only changed its address.
-
-With affection,
-L. T.

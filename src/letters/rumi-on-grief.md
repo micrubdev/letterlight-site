@@ -9,6 +9,7 @@ prompts:
   - "If your grief could speak in one sentence, what would it say? Let it say it on the page."
   - "Where in your body do you feel the missing? Describe it as plainly as you can."
   - "What did loving them teach you that you want to keep, now that they are gone?"
+signoff: "With you in the quiet,"
 sensitive: true
 date: 2026-11-19
 ---
@@ -31,6 +32,3 @@ And do not grieve only alone, in the dark. Grief wants company the way a fire wa
 If the darkness grows so thick you cannot see your own hands, reach for someone who can help you find the door. A friend, a doctor, a voice on the end of a line. The heart was never meant to beat alone, and asking is how it remembers.
 
 I will leave you with this. The pain you feel is the price of the love you gave, and you gave a great deal. Let the flute sing. One day you will hear, under the sorrow, that the song was always a love song.
-
-With you in the quiet,
-Rumi

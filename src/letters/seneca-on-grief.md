@@ -9,6 +9,7 @@ prompts:
   - "Write about one ordinary afternoon you spent with them. What did the light look like, what did you talk about?"
   - "Which memory of them still hurts to touch? Write a few lines about it, only as much as you can bear today."
   - "Who else is grieving this person? What might you say to them, or ask them, that you haven't yet?"
+signoff: "Farewell."
 sensitive: true
 date: 2026-11-19
 ---
@@ -31,5 +32,3 @@ Look after your body, too, though it will feel absurd. Eat something, even if it
 And do not go through this alone. You have friends who loved him and friends who love you. Let them bring food, sit with you, say the wrong thing. If the weight becomes too much, if you find the days going dark in a way that frightens you, speak to someone whose work is to help: a doctor, a counsellor, one of the lines on this page. There is no shame in it. The strongest people I have known were the ones who knew when to ask.
 
 Write to me again after the funeral. Tell me one thing about him that made you laugh. I would like to know him a little, through you.
-
-Farewell.
