@@ -46,3 +46,8 @@ test('submitWaitlist tells a bad email and rate limit apart from a network failu
   assert.equal(await submitWaitlist(form, async () => ({ ok: false, status: 429 })), 'rate');
   assert.equal(await submitWaitlist(form, async () => ({ ok: false, status: 500 })), 'error');
 });
+test('apiBase is a real deployed Worker, not the placeholder', () => {
+  const { apiBase } = JSON.parse(fs.readFileSync('src/_data/site.json', 'utf8'));
+  assert.notEqual(apiBase, 'https://letterlight-api.workers.dev');
+  assert.match(apiBase, /^https:\/\/[a-z0-9-]+\.[a-z0-9-]+\.workers\.dev$/);
+});
