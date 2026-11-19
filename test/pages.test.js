@@ -109,3 +109,10 @@ test('quote label colour passes AA contrast on the quote background (light theme
   assert.ok((a + 0.05) / (b + 0.05) >= 4.5);
   assert.match(css, /\.real-quote figcaption \{[^}]*color: var\(--amber-strong\)/);
 });
+test('css and js links carry a content hash so browsers fetch new versions', async () => {
+  const { createHash } = await import('node:crypto');
+  const hash = (f) => createHash('sha1').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
+  const h = read('letters/seneca-on-losing-your-job/index.html');
+  assert.match(h, new RegExp(`href="/assets/site\\.css\\?v=${hash('src/assets/site.css')}"`));
+  assert.match(h, new RegExp(`src="/assets/waitlist\\.js\\?v=${hash('src/assets/waitlist.js')}"`));
+});

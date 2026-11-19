@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import yaml from 'js-yaml';
 import rss from '@11ty/eleventy-plugin-rss';
 
@@ -11,6 +12,8 @@ const byDate = (a, b) => a.date - b.date;
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(rss);
   eleventyConfig.addFilter('concat', (a, b) => [...a, ...b]);
+  // Appends a content hash to an asset URL, so a changed file gets a new URL and skips browser caches.
+  eleventyConfig.addFilter('v', (url) => `${url}?v=${createHash('sha1').update(fs.readFileSync(`${input}${url}`)).digest('hex').slice(0, 8)}`);
   for (const p of ['assets', 'icon.png', 'CNAME', '.nojekyll']) eleventyConfig.addPassthroughCopy(`${input}/${p}`);
 
   // The quote bank lives outside src/ so it is never published.

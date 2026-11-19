@@ -20,7 +20,7 @@ test('every page but privacy has exactly one waitlist form posting to the API', 
     assert.match(h, new RegExp(`<input type="hidden" name="page" value="${urlOf(f)}">`), f);
     assert.match(h, /<input[^>]*name="website"[^>]*tabindex="-1"/, f);
     assert.match(h, /<input[^>]*type="email"[^>]*maxlength="254"[^>]*required/, f);
-    assert.match(h, /<script type="module" src="\/assets\/waitlist.js" defer><\/script>/, f);
+    assert.match(h, /<script type="module" src="\/assets\/waitlist\.js\?v=[0-9a-f]{8}" defer><\/script>/, f);
   }
 });
 
