@@ -11,6 +11,7 @@
   --muted-strong: #4A5163;
   --ink-blue: #2B3A67;
   --rule-line: rgba(176, 115, 48, 0.09);
+  --amber-strong: #8A5520; /* amber dark enough for small text on --amber-wash */
   --serif: "Lora", Georgia, "Times New Roman", serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --step-0: 1rem;
@@ -22,14 +23,14 @@
   :root:not([data-theme="light"]) {
     --paper: #151B2C; --sheet: #1D2539; --ink: #EDE7DA; --muted: #A9AFC0;
     --amber: #D99B52; --amber-wash: #2A2A2E; --rule: #2E3750; --sage: #9DB39E;
-    --muted-strong: #BFC4D2; --ink-blue: #AFC3F0; --rule-line: rgba(217, 155, 82, 0.06);
+    --muted-strong: #BFC4D2; --ink-blue: #AFC3F0; --rule-line: rgba(217, 155, 82, 0.06); --amber-strong: #D99B52;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #151B2C; --sheet: #1D2539; --ink: #EDE7DA; --muted: #A9AFC0;
   --amber: #D99B52; --amber-wash: #2A2A2E; --rule: #2E3750; --sage: #9DB39E;
-    --muted-strong: #BFC4D2; --ink-blue: #AFC3F0; --rule-line: rgba(217, 155, 82, 0.06);
+    --muted-strong: #BFC4D2; --ink-blue: #AFC3F0; --rule-line: rgba(217, 155, 82, 0.06); --amber-strong: #D99B52;
   color-scheme: dark;
 }
 
@@ -178,7 +179,7 @@ footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: v
 .letter.sheet p { margin-bottom: 1rem; }
 .letter.sheet .signoff { margin-bottom: 0; }
 .real-quote { margin: 2.5rem 0; padding: 1rem 1.25rem; background: var(--amber-wash); border-left: 3px solid var(--amber); border-radius: 0 6px 6px 0; }
-.real-quote figcaption { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); font-weight: 600; }
+.real-quote figcaption { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber-strong); font-weight: 600; }
 .real-quote blockquote { margin: 0.5rem 0; font-family: var(--serif); font-size: var(--step-1); font-style: italic; }
 .real-quote blockquote p { margin: 0; }
 .real-quote .source { margin: 0; font-size: 0.875rem; color: var(--muted-strong); }

@@ -7,6 +7,7 @@ import { quoteInText } from '../tools/verify-quote.js';
 const mentors = [
   { id: 'seneca', name: 'Seneca', publicDomain: true },
   { id: 'carl-jung', name: 'Carl Jung', publicDomain: false },
+  { id: 'buddha', name: 'the Buddha', publicDomain: false },
 ];
 const problems = [
   { id: 'losing-your-job', name: 'Losing your job', sensitive: false },
@@ -129,4 +130,19 @@ test('long first paragraph fails', () => {
 test('last paragraph that is a sign-off fails', () => {
   const errs = checkPage(letter({}, `Dear friend,\n\n${words(700)}\n\nFarewell.`), ctx());
   assert.ok(errs.includes('body: ends with a short line ("Farewell."); move it to signoff'));
+});
+test('two-line sign-off with initials left in the body fails', () => {
+  const body = `Dear friend,\n\n${words(700)}\n\nYour friend in the woods,\nH. D. T.`;
+  const errs = checkPage(letter({ signoff: 'Your friend in the woods,', signature: 'H. D. T.' }, body), ctx());
+  assert.ok(errs.includes('body: last paragraph repeats the sign-off or signature; remove it'), errs.join());
+});
+test('body ending with the mentor name fails', () => {
+  const errs = checkPage(letter({}, `Dear friend,\n\n${words(700)}\n\nWrite to me soon, and be steady in all of it. Seneca`), ctx());
+  assert.ok(errs.includes('body: last paragraph repeats the sign-off or signature; remove it'), errs.join());
+});
+test('a lowercase mentor name needs a capitalised signature', () => {
+  const l = letter({ mentor: 'buddha', quote: undefined });
+  l.path = 'src/letters/buddha-on-losing-your-job.md';
+  assert.ok(checkPage(l, ctx()).includes('signature: "the Buddha" starts lowercase; set signature'));
+  assert.ok(!checkPage({ ...l, data: { ...l.data, signature: 'The Buddha' } }, ctx()).some((e) => e.startsWith('signature')));
 });

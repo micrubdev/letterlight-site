@@ -49,11 +49,20 @@ export function checkPage(file, ctx) {
     if (!data.signoff) errors.push('signoff: missing');
     else if (String(data.signoff).length > L.signoffMax) errors.push(`signoff: ${String(data.signoff).length} characters, max ${L.signoffMax}`);
     if (data.signature && String(data.signature).length > L.signatureMax) errors.push(`signature: ${String(data.signature).length} characters, max ${L.signatureMax}`);
+    if (mentor && !data.signature && mentor.name[0] !== mentor.name[0].toUpperCase()) errors.push(`signature: "${mentor.name}" starts lowercase; set signature`);
     const paras = paragraphs(body);
     const first = wordCount(paras[0]);
     if (first > L.salutationMax) errors.push(`body: first paragraph is ${first} words; start with a short salutation (max ${L.salutationMax})`);
     const last = paras[paras.length - 1].trim();
     if (paras.length > 1 && wordCount(last) < L.closingMin) errors.push(`body: ends with a short line ("${last}"); move it to signoff`);
+    else if (paras.length > 1) {
+      // A sign-off or signature copied into the body would show twice: once in the text, once below it.
+      const bare = (s) => normalize(s).replace(/[^\p{L}\p{N} ]+/gu, ' ').replace(/\s+/g, ' ').trim();
+      const end = bare(last);
+      const names = [data.signature, mentor?.name].filter(Boolean).map(bare).filter(Boolean);
+      const so = data.signoff ? bare(data.signoff) : '';
+      if ((so && end.startsWith(so)) || names.some((n) => end === n || end.endsWith(` ${n}`))) errors.push('body: last paragraph repeats the sign-off or signature; remove it');
+    }
     if (mentor && !mentor.publicDomain && data.quote) errors.push(`quote: ${mentor.name}'s works are in copyright, remove the quote`);
     if (mentor && mentor.publicDomain) {
       const q = data.quote && ctx.quotes.find((x) => x.id === data.quote.id);

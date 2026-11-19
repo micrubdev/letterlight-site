@@ -101,3 +101,11 @@ test('contrast and ink tokens exist in light, dark and forced-dark themes', () =
     assert.equal((css.match(new RegExp(`${t}:`, 'g')) || []).length, 3, t);
   }
 });
+test('quote label colour passes AA contrast on the quote background (light theme)', () => {
+  const css = read('assets/site.css');
+  const tok = (n) => css.match(new RegExp(`${n}:\\s*(#[0-9A-Fa-f]{6})`))[1];
+  const lum = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+  const [a, b] = [lum(tok('--amber-strong')), lum(tok('--amber-wash'))].sort((x, y) => y - x);
+  assert.ok((a + 0.05) / (b + 0.05) >= 4.5);
+  assert.match(css, /\.real-quote figcaption \{[^}]*color: var\(--amber-strong\)/);
+});
