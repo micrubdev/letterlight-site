@@ -1,0 +1,24 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+{%- set items = (collections.letters | concat(collections.guides)) | sort(true, false, 'date') -%}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Letterlight: letters from great minds</title>
+  <subtitle>Imagined letters from mentors on real problems, and journaling prompts.</subtitle>
+  <link href="{{ site.url }}/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/"/>
+  <updated>{{ (items[0].date if items.length else page.date) | dateToRfc3339 }}</updated>
+  <id>{{ site.url }}/</id>
+  <author><name>Letterlight</name></author>
+{%- for p in items %}
+  <entry>
+    <title>{{ p.data.title }}</title>
+    <link href="{{ site.url }}{{ p.url }}"/>
+    <updated>{{ p.date | dateToRfc3339 }}</updated>
+    <id>{{ site.url }}{{ p.url }}</id>
+    <summary>{{ p.data.description }}</summary>
+  </entry>
+{%- endfor %}
+</feed>

@@ -1,11 +1,14 @@
 import fs from 'node:fs';
 import yaml from 'js-yaml';
+import rss from '@11ty/eleventy-plugin-rss';
 
 const mentors = JSON.parse(fs.readFileSync('src/_data/mentors.json', 'utf8'));
 const problems = JSON.parse(fs.readFileSync('src/_data/problems.json', 'utf8'));
 const byDate = (a, b) => a.date - b.date;
 
 export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(rss);
+  eleventyConfig.addFilter('concat', (a, b) => [...a, ...b]);
   for (const p of ['src/assets', 'src/icon.png', 'src/CNAME', 'src/.nojekyll'])
     eleventyConfig.addPassthroughCopy(p);
 

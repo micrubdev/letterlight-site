@@ -1,0 +1,17 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{#- Paginated hubs depend on collections, so Eleventy only puts their first page in collections.all; list hubs from data instead. #}
+{%- for p in collections.all %}{% if not (p.url.startsWith('/mentors/') or p.url.startsWith('/problems/')) %}
+  <url><loc>{{ site.url }}{{ p.url }}</loc><lastmod>{{ p.date | isoDate }}</lastmod></url>
+{%- endif %}{% endfor %}
+{%- for m in collections.mentorsWithLetters %}
+  <url><loc>{{ site.url }}/mentors/{{ m.id }}/</loc><lastmod>{{ (collections.letters | byMentor(m.id) | last).date | isoDate }}</lastmod></url>
+{%- endfor %}
+{%- for pr in collections.problemsWithLetters %}
+  <url><loc>{{ site.url }}/problems/{{ pr.id }}/</loc><lastmod>{{ (collections.letters | byProblem(pr.id) | last).date | isoDate }}</lastmod></url>
+{%- endfor %}
+</urlset>
