@@ -39,8 +39,15 @@ test('problem hub lists both mentors', () => {
   assert.match(h, /Marcus Aurelius/);
 });
 test('hubs exist only for mentors and problems that have letters', () => {
-  assert.ok(!fs.existsSync('_site/mentors/thoreau/index.html'));
-  assert.ok(!fs.existsSync('_site/problems/loneliness/index.html'));
+  // Pick a mentor and a problem that have no letter yet, so new content never breaks this test.
+  const used = fs.readdirSync('src/letters').filter((f) => f.endsWith('.md')).map((f) => f.replace(/\.md$/, ''));
+  const mentors = JSON.parse(fs.readFileSync('src/_data/mentors.json', 'utf8')).map((m) => m.id);
+  const problems = JSON.parse(fs.readFileSync('src/_data/problems.json', 'utf8')).map((p) => p.id);
+  const idleMentor = mentors.find((m) => !used.some((u) => u.startsWith(`${m}-on-`)));
+  const idleProblem = problems.find((p) => !used.some((u) => u.endsWith(`-on-${p}`)));
+  assert.ok(idleMentor && idleProblem);
+  assert.ok(!fs.existsSync(`_site/mentors/${idleMentor}/index.html`), idleMentor);
+  assert.ok(!fs.existsSync(`_site/problems/${idleProblem}/index.html`), idleProblem);
 });
 test('guide has breadcrumb and links to letters on its problem only when they exist', () => {
   const h = read('journaling-prompts/grief/index.html');

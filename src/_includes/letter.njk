@@ -14,7 +14,7 @@ layout: base.njk
   <figure class="real-quote">
     <figcaption>In {{ mentorData.possessive }} own words</figcaption>
     <blockquote class="quote"><p>{% if quoteData.text[0] != quoteData.text[0] | upper %}…{% endif %}{{ quoteData.text }}</p></blockquote>
-    <p class="source"><cite>{{ quoteData.work }}</cite>, {{ quoteData.location }}. Translated by {{ quoteData.translation }}.</p>
+    <p class="source"><cite>{{ quoteData.work }}</cite>, {{ quoteData.location }}.{% if quoteData.translation %} Translated by {{ quoteData.translation }}.{% endif %}</p>
   </figure>
   {%- endif %}
   <section class="prompts" aria-labelledby="prompts-h">
