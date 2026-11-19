@@ -1,44 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Letterlight Privacy Policy</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="icon" href="icon.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Inter:wght@400;600&display=swap">
-<style>
-:root {
-  --paper: #F6F1E7; --ink: #1F2A44; --muted: #5B6276; --amber: #B07330; --rule: #E2D9C8;
-  --serif: "Lora", Georgia, serif;
-  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --paper: #151B2C; --ink: #EDE7DA; --muted: #A9AFC0; --amber: #D99B52; --rule: #2E3750; color-scheme: dark; }
-}
-:root[data-theme="dark"] { --paper: #151B2C; --ink: #EDE7DA; --muted: #A9AFC0; --amber: #D99B52; --rule: #2E3750; color-scheme: dark; }
-* { box-sizing: border-box; }
-html, body { margin: 0; }
-body { background: var(--paper); color: var(--ink); font: 400 1rem/1.65 var(--sans); }
-main {
-  max-width: 40rem; margin: 0 auto; padding-block: 2rem 4rem;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-}
-a { color: var(--amber); text-underline-offset: 3px; }
-a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
-h1, h2 { font-family: var(--serif); font-weight: 600; line-height: 1.2; text-wrap: balance; }
-h1 { font-size: 2rem; margin: 1.5rem 0 0.25rem; }
-h2 { font-size: 1.2rem; margin: 2.25rem 0 0.5rem; }
-.date { color: var(--muted); margin: 0; }
-ul { padding-left: 1.25rem; }
-li + li { margin-top: 0.35rem; }
-footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.875rem; }
-</style>
-</head>
-<body>
+---
+layout: base.njk
+permalink: privacy.html
+bodyClass: doc
+title: Letterlight Privacy Policy
+description: What happens to what you write in Letterlight, the AI journal for Android.
+---
 <main>
-<a href="./">← Letterlight</a>
+<a href="/">← Letterlight</a>
 <h1>Privacy policy</h1>
 <p class="date">Last updated 25 October 2026</p>
 
@@ -102,5 +70,3 @@ footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rul
 
 <footer>© 2026 Letterlight</footer>
 </main>
-</body>
-</html>

@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+{% include "head.njk" %}
+</head>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+{{ content | safe }}
+</body>
+</html>
