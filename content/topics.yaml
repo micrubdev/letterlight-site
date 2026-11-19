@@ -45,13 +45,13 @@
   mentor: marcus-aurelius
   problem: anxiety
   query: marcus aurelius on anxiety
-  status: queued
+  status: published
 - slug: letters/lao-tzu-on-anxiety
   type: letter
   mentor: lao-tzu
   problem: anxiety
   query: tao te ching for anxiety
-  status: queued
+  status: published
 - slug: letters/buddha-on-anxiety
   type: letter
   mentor: buddha
@@ -80,7 +80,7 @@
   type: guide
   problem: anxiety
   query: journaling prompts for anxiety
-  status: queued
+  status: published
 - slug: journaling-prompts/gratitude
   type: guide
   problem: gratitude

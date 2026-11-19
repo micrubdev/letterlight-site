@@ -23,3 +23,43 @@
   translation: Elizabeth Carter (1758)
   source_url: https://classics.mit.edu/Epictetus/epicench.html
   verified: 2026-11-19
+- id: seneca-weep-not-wail
+  mentor: seneca
+  text: "Let not the eyes be dry when we have lost a friend, nor let them overflow. We may weep, but we must not wail."
+  work: Moral Letters to Lucilius
+  location: Letter 63
+  translation: Richard Mott Gummere (1917)
+  source_url: https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_63
+  verified: 2026-11-19
+- id: rumi-reed-flute
+  mentor: rumi
+  text: "Hearken to the reed-flute, how it complains, Lamenting its banishment from its home"
+  work: The Masnavi
+  location: Book I, Prologue
+  translation: Edward Henry Whinfield (1887)
+  source_url: https://en.wikisource.org/wiki/Masnavi_I_Ma'navi/Book_I
+  verified: 2026-11-19
+- id: tolstoy-live-by-love
+  mentor: tolstoy
+  text: "I have learnt that all men live not by care for themselves but by love."
+  work: What Men Live By
+  location: the closing chapter
+  translation: Louise and Aylmer Maude (1906)
+  source_url: https://en.wikisource.org/wiki/Twenty-three_Tales/What_Men_Live_By
+  verified: 2026-11-19
+- id: marcus-future-things
+  mentor: marcus-aurelius
+  text: "Let not future things disturb thee, for thou wilt come to them, if it shall be necessary, having with thee the same reason which now thou usest for present things."
+  work: Meditations
+  location: Book VII, 8
+  translation: George Long (1862)
+  source_url: https://en.wikisource.org/wiki/The_Thoughts_of_the_Emperor_Marcus_Aurelius_Antoninus/Book_VII
+  verified: 2026-11-19
+- id: laotzu-muddy-water
+  mentor: lao-tzu
+  text: "Who can (make) the muddy water (clear)? Let it be still, and it will gradually become clear."
+  work: Tao Te Ching
+  location: Chapter 15
+  translation: James Legge (1891)
+  source_url: https://en.wikisource.org/wiki/Tâo_Teh_King
+  verified: 2026-11-19

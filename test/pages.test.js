@@ -39,7 +39,7 @@ test('problem hub lists both mentors', () => {
   assert.match(h, /Marcus Aurelius/);
 });
 test('hubs exist only for mentors and problems that have letters', () => {
-  assert.ok(!fs.existsSync('_site/mentors/rumi/index.html'));
+  assert.ok(!fs.existsSync('_site/mentors/thoreau/index.html'));
   assert.ok(!fs.existsSync('_site/problems/loneliness/index.html'));
 });
 test('guide has breadcrumb and links to letters on its problem only when they exist', () => {
