@@ -8,6 +8,9 @@
   --amber-wash: #F3E6D3;
   --rule: #E2D9C8;
   --sage: #5E7360;
+  --muted-strong: #4A5163;
+  --ink-blue: #2B3A67;
+  --rule-line: rgba(176, 115, 48, 0.09);
   --serif: "Lora", Georgia, "Times New Roman", serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --step-0: 1rem;
@@ -19,12 +22,14 @@
   :root:not([data-theme="light"]) {
     --paper: #151B2C; --sheet: #1D2539; --ink: #EDE7DA; --muted: #A9AFC0;
     --amber: #D99B52; --amber-wash: #2A2A2E; --rule: #2E3750; --sage: #9DB39E;
+    --muted-strong: #BFC4D2; --ink-blue: #AFC3F0; --rule-line: rgba(217, 155, 82, 0.06);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #151B2C; --sheet: #1D2539; --ink: #EDE7DA; --muted: #A9AFC0;
   --amber: #D99B52; --amber-wash: #2A2A2E; --rule: #2E3750; --sage: #9DB39E;
+    --muted-strong: #BFC4D2; --ink-blue: #AFC3F0; --rule-line: rgba(217, 155, 82, 0.06);
   color-scheme: dark;
 }
 
@@ -80,27 +85,15 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; text-wrap: balance; ma
   color: var(--muted); font-size: 0.9375rem;
 }
 .entry b { display: block; font-weight: 500; color: var(--ink); font-size: 0.8125rem; letter-spacing: 0.02em; margin-bottom: 0.25rem; }
-.letter {
-  background: var(--sheet);
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  padding: clamp(1.25rem, 5vw, 2.25rem);
-  box-shadow: 0 1px 0 var(--rule), 0 18px 40px -28px rgba(31, 42, 68, 0.45);
-  font-family: var(--serif);
-  font-size: var(--step-1);
-  line-height: 1.65;
-}
 .letter header { display: grid; gap: 0.2rem; margin-bottom: 1.25rem; }
 .letter h2 { font-size: var(--step-2); }
-.letter time { font: 400 0.8125rem/1.4 var(--sans); color: var(--muted); }
-.letter p { margin: 0 0 1rem; }
+.letter time { font: 400 0.8125rem/1.4 var(--sans); color: var(--muted-strong); }
 .question {
   margin: 1.25rem 0; padding: 1rem 1.25rem;
   background: var(--amber-wash); border-radius: 4px;
 }
 .question .label { display: block; margin-bottom: 0.5rem; }
 .question p { margin: 0; font-style: italic; }
-.sign { text-align: right; font-style: italic; margin: 0; }
 
 /* sections */
 section.block { padding-block: 3rem; border-top: 1px solid var(--rule); display: grid; gap: 1.5rem; }
@@ -148,16 +141,47 @@ footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: v
 
 /* Letters, guides and hubs. */
 .doc .doc-mast { padding-block: 0 1rem; }
-.crumbs { font-size: 0.875rem; color: var(--muted); }
-.crumbs a { color: var(--muted); }
-.ai-label { font-size: 0.875rem; color: var(--muted); font-style: italic; border-left: 3px solid var(--amber-wash); padding-left: 0.75rem; }
-.letter-body { font-family: var(--serif); font-size: var(--step-1); line-height: 1.7; }
-.letter-body p:last-child { font-style: italic; }
-.real-quote { margin: 2.5rem 0; padding: 1.25rem 1.5rem; background: var(--sheet); border: 1px solid var(--rule); border-radius: 12px; }
+.crumbs { font-size: 0.875rem; color: var(--muted-strong); }
+.crumbs a { color: var(--muted-strong); }
+.ai-label { font-size: 0.875rem; color: var(--muted-strong); font-style: italic; border-left: 3px solid var(--amber-wash); padding-left: 0.75rem; }
+.letter-page h1 { font-size: clamp(1.7rem, 5vw, 2.2rem); line-height: 1.2; }
+.letter-page .ai-label { margin-bottom: 1.5rem; }
+
+/* The letter sheet: cream paper, faint rules every --line, text sitting on the rules. */
+.sheet {
+  --line: 32px;
+  position: relative;
+  margin: 0;
+  padding: var(--line) clamp(1.1rem, 5vw, 2.25rem) calc(var(--line) * 0.75);
+  background-color: var(--sheet);
+  background-image: repeating-linear-gradient(transparent 0 calc(var(--line) - 1px), var(--rule-line) calc(var(--line) - 1px) var(--line));
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(60, 40, 10, 0.08), 0 8px 24px rgba(60, 40, 10, 0.10);
+  font: 400 17.5px/var(--line) var(--serif);
+  overflow-wrap: break-word;
+}
+@media (min-width: 40rem) { .sheet { --line: 34px; font-size: 19px; } }
+.sheet p { margin: 0 0 var(--line); }
+.sheet .dateline { text-align: right; font-style: italic; font-size: 0.85em; color: var(--muted-strong); }
+.letter-body > .dateline + p, .sheet .salute { font-style: italic; }
+.letter-body > .dateline + p + p::first-letter, .sheet .drop::first-letter {
+  float: left; font: 600 3.1em/0.8 var(--serif); padding: 0.12em 0.12em 0 0; color: var(--amber);
+}
+.sheet .signoff { text-align: right; font-style: italic; margin-bottom: 0; }
+.sheet .signature {
+  text-align: right; margin: 0.25rem 0 0;
+  font: 500 31px/1.1 "Caveat", "Segoe Script", "Bradley Hand", cursive;
+  color: var(--ink-blue); overflow-wrap: anywhere;
+}
+/* The home sample has a header and a question box that break the line rhythm, so no rules there. */
+.letter.sheet { background-image: none; padding-top: clamp(1.25rem, 5vw, 2.25rem); }
+.letter.sheet p { margin-bottom: 1rem; }
+.letter.sheet .signoff { margin-bottom: 0; }
+.real-quote { margin: 2.5rem 0; padding: 1rem 1.25rem; background: var(--amber-wash); border-left: 3px solid var(--amber); border-radius: 0 6px 6px 0; }
 .real-quote figcaption { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); font-weight: 600; }
-.real-quote blockquote { margin: 0.5rem 0; font-family: var(--serif); font-size: var(--step-1); }
+.real-quote blockquote { margin: 0.5rem 0; font-family: var(--serif); font-size: var(--step-1); font-style: italic; }
 .real-quote blockquote p { margin: 0; }
-.real-quote .source { margin: 0; font-size: 0.875rem; color: var(--muted); }
+.real-quote .source { margin: 0; font-size: 0.875rem; color: var(--muted-strong); }
 .prompts ol { padding-left: 1.25rem; }
 .prompt { margin-bottom: 0.5rem; }
 .crisis { margin: 2.5rem 0; padding: 1rem 1.25rem; border: 2px solid var(--sage); border-radius: 12px; background: var(--sheet); }
@@ -177,7 +201,7 @@ footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: v
 .waitlist .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .waitlist-error:empty { display: none; }
 .waitlist-error { color: #A33; margin: 0.5rem 0 0; }
-.waitlist-note { font-size: 0.8125rem; color: var(--muted); margin: 0.5rem 0 0; }
+.waitlist-note { font-size: 0.8125rem; color: var(--muted-strong); margin: 0.5rem 0 0; }
 .waitlist-done { font-weight: 600; }
 .site-nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 2rem; font-weight: 500; }
 .problem-link { margin-top: 2rem; }

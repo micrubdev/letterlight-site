@@ -87,3 +87,17 @@ test('signature falls back to mentor name, or uses front matter signature', () =
   assert.match(read('letters/seneca-on-grief/index.html'), /<p class="signature">Seneca<\/p>/);
   assert.match(read('letters/tolstoy-on-grief/index.html'), /<p class="signature">L\. T\.<\/p>/);
 });
+test('home sample letter uses the sheet and an ink signature', () => {
+  const h = read('index.html');
+  assert.match(h, /<article class="letter sheet">/);
+  assert.match(h, /<p class="signoff">Yours,<\/p>\s*<p class="signature">Seneca<\/p>/);
+});
+test('Caveat 500 is loaded with the other fonts', () => {
+  assert.match(letter(), /fonts\.googleapis\.com\/css2\?[^"]*family=Caveat:wght@500/);
+});
+test('contrast and ink tokens exist in light, dark and forced-dark themes', () => {
+  const css = read('assets/site.css');
+  for (const t of ['--muted-strong', '--ink-blue', '--rule-line']) {
+    assert.equal((css.match(new RegExp(`${t}:`, 'g')) || []).length, 3, t);
+  }
+});
