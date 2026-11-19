@@ -15,3 +15,11 @@
   translation: George Long (1862)
   source_url: https://en.wikisource.org/wiki/The_Thoughts_of_the_Emperor_Marcus_Aurelius_Antoninus/Book_V
   verified: 2026-11-19
+- id: epictetus-returned
+  mentor: epictetus
+  text: 'Never say of anything, "I have lost it"; but, "I have returned it."'
+  work: The Enchiridion
+  location: Chapter 11
+  translation: Elizabeth Carter (1758)
+  source_url: https://classics.mit.edu/Epictetus/epicench.html
+  verified: 2026-11-19
