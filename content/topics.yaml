@@ -27,19 +27,19 @@
   mentor: seneca
   problem: grief
   query: seneca on grief and loss
-  status: queued
+  status: published
 - slug: letters/rumi-on-grief
   type: letter
   mentor: rumi
   problem: grief
   query: rumi on grief after losing someone
-  status: queued
+  status: published
 - slug: letters/tolstoy-on-grief
   type: letter
   mentor: tolstoy
   problem: grief
   query: tolstoy on grief and death of a loved one
-  status: queued
+  status: published
 - slug: letters/marcus-aurelius-on-anxiety
   type: letter
   mentor: marcus-aurelius
