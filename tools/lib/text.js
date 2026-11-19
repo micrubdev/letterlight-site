@@ -30,3 +30,5 @@ export function jaccard(a, b) {
   for (const x of a) if (b.has(x)) both++;
   return both / (a.size + b.size - both);
 }
+
+export const paragraphs = (body) => body.trim().split(/\n\s*\n/);

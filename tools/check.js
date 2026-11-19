@@ -5,11 +5,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import yaml from 'js-yaml';
-import { normalize, wordCount, shingles, jaccard } from './lib/text.js';
+import { normalize, wordCount, shingles, jaccard, paragraphs } from './lib/text.js';
 
 export { normalize, wordCount, shingles, jaccard };
 
-export const LIMITS = { titleMax: 60, descMin: 120, descMax: 160, wordsMin: 600, wordsMax: 1100, guideMin: 15, guideMax: 30, similarMax: 0.35, perDay: 10 };
+export const LIMITS = { titleMax: 60, descMin: 120, descMax: 160, wordsMin: 600, wordsMax: 1100, guideMin: 15, guideMax: 30, similarMax: 0.35, perDay: 10, signoffMax: 40, signatureMax: 30, salutationMax: 15, closingMin: 6 };
 
 const isLetter = (p) => p.split(path.sep).join('/').includes('/letters/');
 const slugOf = (p) => (isLetter(p.path) ? `letters/${p.data.mentor}-on-${p.data.problem}` : `journaling-prompts/${p.data.problem}`);
@@ -46,6 +46,14 @@ export function checkPage(file, ctx) {
     const words = wordCount(body);
     if (words < L.wordsMin || words > L.wordsMax) errors.push(`words: ${words}, want ${L.wordsMin}-${L.wordsMax}`);
     if (!Array.isArray(data.prompts) || data.prompts.length !== 3) errors.push('prompts: a letter needs exactly 3');
+    if (!data.signoff) errors.push('signoff: missing');
+    else if (String(data.signoff).length > L.signoffMax) errors.push(`signoff: ${String(data.signoff).length} characters, max ${L.signoffMax}`);
+    if (data.signature && String(data.signature).length > L.signatureMax) errors.push(`signature: ${String(data.signature).length} characters, max ${L.signatureMax}`);
+    const paras = paragraphs(body);
+    const first = wordCount(paras[0]);
+    if (first > L.salutationMax) errors.push(`body: first paragraph is ${first} words; start with a short salutation (max ${L.salutationMax})`);
+    const last = paras[paras.length - 1].trim();
+    if (paras.length > 1 && wordCount(last) < L.closingMin) errors.push(`body: ends with a short line ("${last}"); move it to signoff`);
     if (mentor && !mentor.publicDomain && data.quote) errors.push(`quote: ${mentor.name}'s works are in copyright, remove the quote`);
     if (mentor && mentor.publicDomain) {
       const q = data.quote && ctx.quotes.find((x) => x.id === data.quote.id);

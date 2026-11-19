@@ -14,7 +14,8 @@ const problems = [
 ];
 const quotes = [{ id: 'seneca-imagination', mentor: 'seneca', text: 'We suffer more often in imagination than in reality.' }];
 const words = (n, w = 'word') => Array.from({ length: n }, (_, i) => `${w}${i}`).join(' ');
-const letter = (data = {}, body = words(700)) => ({
+const hi = (b) => `Dear friend,\n\n${b}`;
+const letter = (data = {}, body = hi(words(700))) => ({
   path: 'src/letters/seneca-on-losing-your-job.md',
   data: {
     mentor: 'seneca', problem: 'losing-your-job',
@@ -22,6 +23,7 @@ const letter = (data = {}, body = words(700)) => ({
     description: 'x'.repeat(140),
     quote: { id: 'seneca-imagination' },
     prompts: ['a?', 'b?', 'c?'],
+    signoff: 'Farewell.',
     sensitive: false, date: new Date('2026-11-19'),
     ...data,
   },
@@ -41,7 +43,7 @@ test('a good guide passes', () => assert.deepEqual(checkPage(guide(20), ctx()), 
 test('letter length must be 600 to 1100 words', () => {
   assert.ok(has(checkPage(letter({}, words(599)), ctx()), 'words'));
   assert.ok(has(checkPage(letter({}, words(1101)), ctx()), 'words'));
-  assert.deepEqual(checkPage(letter({}, words(600)), ctx()), []);
+  assert.deepEqual(checkPage(letter({}, hi(words(598))), ctx()), []);
 });
 test('title at most 60 characters, description 120 to 160', () => {
   assert.ok(has(checkPage(letter({ title: 't'.repeat(61) }), ctx()), 'title'));
@@ -74,12 +76,12 @@ test('near-copy of another page fails as similar', () => {
   const other = { path: 'src/letters/other.md', body: copy.join(' '), data: { mentor: 'seneca', problem: 'grief' } };
   assert.ok(has(checkPage(letter({}, body), ctx([other])), 'similar'));
   const different = { path: 'src/letters/other.md', body: words(700, 'other'), data: { mentor: 'seneca', problem: 'grief' } };
-  assert.deepEqual(checkPage(letter({}, body), ctx([different])), []);
+  assert.deepEqual(checkPage(letter({}, hi(body)), ctx([different])), []);
 });
 test('banned phrases fail, whatever the case or apostrophe', () => {
   assert.ok(has(checkPage(letter({}, words(700) + ' Let us Delve into it.'), ctx()), 'banned'));
   assert.ok(has(checkPage(letter({}, words(700) + ' In today’s fast-paced world.'), ctx()), 'banned'));
-  assert.deepEqual(checkPage(letter({}, words(700) + ' delved'), ctx()), [], 'whole words only');
+  assert.deepEqual(checkPage(letter({}, hi(words(700) + ' delved')), ctx()), [], 'whole words only');
 });
 test('letters need exactly three prompts', () => {
   assert.ok(has(checkPage(letter({ prompts: ['a', 'b'] }), ctx()), 'prompts'));
@@ -110,4 +112,21 @@ test('quoteInText rejects a quote cut or changed at a word edge', () => {
   assert.ok(!quoteInText('happy indeed.', 'he is unhappy indeed.'));
   assert.ok(!quoteInText('ever say of anything', 'Never say of anything'));
   assert.ok(quoteInText('say of anything', 'Never say of anything, ok'));
+});
+test('letter without signoff fails', () => {
+  assert.ok(checkPage(letter({ signoff: undefined }), ctx()).includes('signoff: missing'));
+});
+test('signoff over 40 characters fails', () => {
+  assert.ok(checkPage(letter({ signoff: 'x'.repeat(41) }), ctx()).includes('signoff: 41 characters, max 40'));
+});
+test('signature over 30 characters fails', () => {
+  assert.ok(checkPage(letter({ signature: 'x'.repeat(31) }), ctx()).includes('signature: 31 characters, max 30'));
+});
+test('long first paragraph fails', () => {
+  const errs = checkPage(letter({}, `${words(16, 'open')}\n\n${words(700)}`), ctx());
+  assert.ok(errs.includes('body: first paragraph is 16 words; start with a short salutation (max 15)'));
+});
+test('last paragraph that is a sign-off fails', () => {
+  const errs = checkPage(letter({}, `Dear friend,\n\n${words(700)}\n\nFarewell.`), ctx());
+  assert.ok(errs.includes('body: ends with a short line ("Farewell."); move it to signoff'));
 });

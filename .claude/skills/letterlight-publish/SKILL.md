@@ -23,9 +23,9 @@ Work in `~/letterlight-site` on branch `main`. A push to `main` deploys through 
 2. **Pick topics.** Take the first N rows with `status: queued` from `content/topics.yaml`. Keep about 4 letters for every guide. If fewer than 10 rows are still queued after this run, append new ones, each with a realistic search `query`. Use existing problems where you can; a new problem needs a row in `problems.json` (set `sensitive` honestly). List the added topics in the report.
 3. **Quote** (public-domain letters only). Pick a short passage by that mentor that fits the problem, from a public-domain translation on Wikisource (or another public-domain URL). Add it to `content/quotes.yaml` (`id, mentor, text, work, location, translation, source_url, verified`), then run `node tools/verify-quote.js <id>`. If it fails, fix the text to match the source exactly, or pick another passage.
 4. **Write** each page by following the existing pages' front matter exactly:
-   - **Letter:** `src/letters/<mentor>-on-<problem>.md` with `mentor, problem, title (≤60), description (120–160), quote: {id}, prompts (exactly 3), sensitive, date (today)`.
+   - **Letter:** `src/letters/<mentor>-on-<problem>.md` with `mentor, problem, title (≤60), description (120–160), quote: {id}, prompts (exactly 3), signoff (≤40), signature (optional, ≤30), sensitive, date (today)`.
      - Body: 600–1,100 words in the mentor's `voice` from `mentors.json`, addressed to one reader with this problem, concrete and practical.
-     - Open and close the way that mentor would (Seneca: "Seneca greets his friend." … "Farewell.").
+     - Open with a short salutation in the mentor's voice (max 15 words). Do not end the body with a sign-off or the mentor's name; put the sign-off in `signoff` (Seneca: "Farewell.") and initials, if the mentor signs that way, in `signature`.
      - Do not quote the mentor inside the body; the verified quote shows separately.
    - **Guide:** `src/journaling-prompts/<problem>.md` with `problem, title, description, sensitive, date`.
      - Body: a short intro, a "## How to use these prompts" section, then 15–30 prompts as `-` items under `##` groups.

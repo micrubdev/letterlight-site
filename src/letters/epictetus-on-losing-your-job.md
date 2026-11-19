@@ -13,6 +13,8 @@ signoff: "Be steady."
 sensitive: false
 date: 2026-11-19
 ---
+Epictetus to a student who has lost his post.
+
 You have come to me upset, so I will be blunt with you, and then I will be kind.
 
 You lost your job. You tell me this as if it were the worst thing that could happen to a person. I was born a slave. My master once twisted my leg until it broke, and I walk with a limp to this day. I do not tell you this so that you will feel small. I tell you so that you will believe me when I say that a great deal can be taken from a person, and still the most important thing stays where it was.
