@@ -22,3 +22,9 @@ test('home page keeps its tagline and canonical url', () => {
   assert.match(html, /<link rel="canonical" href="https:\/\/letterlight.app\/">/);
   assert.match(html, /Great minds write back/);
 });
+test('privacy policy covers the waitlist at #waitlist', () => {
+  const html = fs.readFileSync('_site/privacy.html', 'utf8');
+  assert.match(html, /<h2 id="waitlist">Beta waitlist<\/h2>/);
+  assert.match(html, /never sold/);
+  assert.match(html, /Last updated 19 November 2026/);
+});
