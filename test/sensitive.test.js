@@ -31,9 +31,11 @@ test('a quote written in English shows no "Translated by" line', () => {
   const t = 'tmp-test-english';
   fs.rmSync(t, { recursive: true, force: true });
   fs.cpSync('src', `${t}/src`, { recursive: true });
+  // Own quote file, so this test does not depend on which quotes are published.
+  fs.writeFileSync(`${t}/quotes.yaml`, '- id: thoreau-companionable-solitude\n  mentor: thoreau\n  text: "I never found the companion that was so companionable as solitude."\n  work: Walden\n  location: Chapter V\n  translation: null\n  source_url: https://en.wikisource.org/wiki/Walden\n  verified: 2026-11-19\n');
   fs.writeFileSync(`${t}/src/letters/thoreau-on-loneliness.md`, '---\nmentor: thoreau\nproblem: loneliness\ntitle: T\ndescription: D\nquote: {id: thoreau-companionable-solitude}\nprompts: [a, b, c]\nsensitive: false\ndate: 2026-01-01\n---\nBody.\n');
   try {
-    execSync('npx @11ty/eleventy --quiet', { stdio: 'pipe', env: { ...process.env, NODE_NO_WARNINGS: '1', LL_INPUT: `${t}/src`, LL_OUTPUT: `${t}/out` } });
+    execSync('npx @11ty/eleventy --quiet', { stdio: 'pipe', env: { ...process.env, NODE_NO_WARNINGS: '1', LL_INPUT: `${t}/src`, LL_OUTPUT: `${t}/out`, LL_QUOTES: `${t}/quotes.yaml` } });
     const h = fs.readFileSync(`${t}/out/letters/thoreau-on-loneliness/index.html`, 'utf8');
     assert.match(h, /<cite>Walden<\/cite>/);
     assert.doesNotMatch(h, /Translated by/);

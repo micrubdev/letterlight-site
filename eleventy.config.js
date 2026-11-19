@@ -14,7 +14,7 @@ export default function (eleventyConfig) {
   for (const p of ['assets', 'icon.png', 'CNAME', '.nojekyll']) eleventyConfig.addPassthroughCopy(`${input}/${p}`);
 
   // The quote bank lives outside src/ so it is never published.
-  eleventyConfig.addGlobalData('quotes', () => yaml.load(fs.readFileSync('content/quotes.yaml', 'utf8')) ?? []);
+  eleventyConfig.addGlobalData('quotes', () => yaml.load(fs.readFileSync(process.env.LL_QUOTES || 'content/quotes.yaml', 'utf8')) ?? []);
 
   const letters = (api) => api.getFilteredByGlob(`${input}/letters/*.md`).sort(byDate);
   const guides = (api) => api.getFilteredByGlob(`${input}/journaling-prompts/*.md`).sort(byDate);
