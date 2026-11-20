@@ -17,6 +17,9 @@ export async function submitWaitlist(form, fetchImpl = fetch) {
   }
 }
 
+/** Tells Google Analytics about a signup, if analytics is loaded on this page. */
+export const reportSignup = (w) => { if (typeof w.gtag === 'function') w.gtag('event', 'sign_up', { method: 'waitlist' }); };
+
 const MESSAGES = {
   email: 'That email address looks wrong. Check it and try again.',
   rate: 'Too many tries from this network. Please wait an hour.',
@@ -39,6 +42,7 @@ if (typeof document !== 'undefined') {
           done.setAttribute('role', 'status');
           done.textContent = "You're on the list. We'll write when the beta opens.";
           form.replaceWith(done);
+          reportSignup(window);
         } else {
           error.textContent = MESSAGES[result];
           button.disabled = false;

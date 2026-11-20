@@ -1,0 +1,12 @@
+{#- Google Analytics 4. Ads storage is always off; analytics cookies are denied in the EEA, UK and Switzerland until the visitor allows them (assets/consent.js). #}
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'] });
+gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'granted' });
+try { var c = localStorage.getItem('ll-stats'); if (c) gtag('consent', 'update', { analytics_storage: c === 'yes' ? 'granted' : 'denied' }); } catch (e) {}
+gtag('js', new Date());
+gtag('config', '{{ site.gaId }}');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gaId }}"></script>
+<script type="module" src="{{ '/assets/consent.js' | v }}"></script>

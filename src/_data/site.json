@@ -1,5 +1,6 @@
 {
   "url": "https://letterlight.app",
   "name": "Letterlight",
-  "apiBase": "https://letterlight-waitlist.mrubanov.workers.dev"
+  "apiBase": "https://letterlight-waitlist.mrubanov.workers.dev",
+  "gaId": ""
 }

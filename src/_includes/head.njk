@@ -20,3 +20,6 @@
 <script type="application/ld+json">{{ item | dump | safe }}</script>
 {%- endfor %}
 {%- endif %}
+{%- if site.gaId %}
+{% include "analytics.njk" %}
+{%- endif %}
