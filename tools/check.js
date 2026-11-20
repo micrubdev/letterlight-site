@@ -37,6 +37,7 @@ export function checkPage(file, ctx) {
   const dl = (data.description ?? '').length;
   if (dl < L.descMin || dl > L.descMax) errors.push(`description: ${dl} characters, want ${L.descMin}-${L.descMax}`);
   if (!data.date) errors.push('date: missing');
+  else if (data.updated && new Date(data.updated) < new Date(data.date)) errors.push('updated: before the publish date');
   if (!problem) errors.push(`problem: unknown "${data.problem}" (add it to src/_data/problems.json)`);
   else if (problem.sensitive && data.sensitive !== true) errors.push(`sensitive: "${problem.id}" is a sensitive problem, set sensitive: true`);
 

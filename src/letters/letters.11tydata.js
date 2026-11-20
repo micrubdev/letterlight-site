@@ -16,6 +16,7 @@ export default {
           '@context': 'https://schema.org', '@type': 'Article',
           headline: d.title, description: d.description,
           datePublished: new Date(d.page.date).toISOString().slice(0, 10),
+          dateModified: new Date(d.updated ?? d.page.date).toISOString().slice(0, 10),
           author: { '@type': 'Organization', name: 'Letterlight', url: SITE },
           publisher: { '@type': 'Organization', name: 'Letterlight', logo: { '@type': 'ImageObject', url: `${SITE}/icon.png` } },
           mainEntityOfPage: url,

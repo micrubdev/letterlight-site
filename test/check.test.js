@@ -151,3 +151,7 @@ test('a number in a guide title must match the real prompt count', () => {
   assert.deepEqual(checkPage(guide(20, { title: '20 journaling prompts for anxiety' }), ctx()), []);
   assert.deepEqual(checkPage(guide(20, { title: 'Journaling prompts for anxiety' }), ctx()), []);
 });
+test('updated must not be before the publish date', () => {
+  assert.ok(has(checkPage(guide(20, { date: new Date('2026-11-19'), updated: new Date('2026-11-18') }), ctx()), 'updated'));
+  assert.deepEqual(checkPage(guide(20, { date: new Date('2026-11-19'), updated: new Date('2026-11-20') }), ctx()), []);
+});

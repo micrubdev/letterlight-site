@@ -24,3 +24,16 @@ test('feed has one entry per letter and guide', () => {
   const n = fs.readdirSync('src/letters').filter((f) => f.endsWith('.md')).length + fs.readdirSync('src/journaling-prompts').filter((f) => f.endsWith('.md')).length;
   assert.equal((xml.match(/<entry>/g) || []).length, n);
 });
+test('sitemap lastmod uses the updated date when a page has one, else its publish date', () => {
+  const xml = read('sitemap.xml');
+  const lastmod = (p) => xml.match(new RegExp(`<loc>https://letterlight\\.app${p}</loc><lastmod>([^<]+)</lastmod>`))?.[1];
+  assert.equal(lastmod('/journaling-prompts/anxiety/'), '2026-11-20');
+  assert.equal(lastmod('/letters/seneca-on-losing-your-job/'), '2026-11-19');
+});
+test('structured data has dateModified, from updated or else the publish date', () => {
+  const ld = (p) => JSON.parse(read(p).match(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema.org","@type":"Article".*?)<\/script>/)[1]);
+  const g = ld('journaling-prompts/anxiety/index.html');
+  assert.equal(g.datePublished, '2026-11-19');
+  assert.equal(g.dateModified, '2026-11-20');
+  assert.equal(ld('letters/seneca-on-losing-your-job/index.html').dateModified, '2026-11-19');
+});

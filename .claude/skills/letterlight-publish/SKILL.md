@@ -14,6 +14,7 @@ Work in `~/letterlight-site` on branch `main`. A push to `main` deploys through 
 - At most **10 pages dated the same day**. `npm run check` enforces this; never get around it.
 - Every letter says it is an imagined AI letter (the layout adds the label). Never present AI text as the mentor's real words.
 - A quote goes into `content/quotes.yaml` only after `node tools/verify-quote.js <id>` exits 0 against a public-domain source. Never invent or paraphrase a quote.
+- When you change the text of a page that is already live, add or update `updated: <today>` in its front matter (never change `date`). The sitemap and structured data use it as the last-modified date.
 - Mentors with `publicDomain: false` in `src/_data/mentors.json` get no quote.
 - **Sensitive** problems (`sensitive: true` in `src/_data/problems.json`) and **flagged** pages are never pushed without the user's explicit yes in this conversation.
 

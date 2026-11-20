@@ -4,6 +4,7 @@ title: "25 journaling prompts for anxiety that calm a racing mind"
 description: "Journaling prompts for anxiety: to get worries out of your head, sort what you can control, and settle your body. Use one when your thoughts won't slow down."
 sensitive: false
 date: 2026-11-19
+updated: 2026-11-20
 ---
 Writing a worry down won't make it disappear. It does move it from your head onto the page, where you can look at it instead of spinning inside it. That alone often helps.
 
