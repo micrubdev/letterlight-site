@@ -146,3 +146,8 @@ test('a lowercase mentor name needs a capitalised signature', () => {
   assert.ok(checkPage(l, ctx()).includes('signature: "the Buddha" starts lowercase; set signature'));
   assert.ok(!checkPage({ ...l, data: { ...l.data, signature: 'The Buddha' } }, ctx()).some((e) => e.startsWith('signature')));
 });
+test('a number in a guide title must match the real prompt count', () => {
+  assert.ok(has(checkPage(guide(20, { title: '25 journaling prompts for anxiety' }), ctx()), 'title'));
+  assert.deepEqual(checkPage(guide(20, { title: '20 journaling prompts for anxiety' }), ctx()), []);
+  assert.deepEqual(checkPage(guide(20, { title: 'Journaling prompts for anxiety' }), ctx()), []);
+});

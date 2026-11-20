@@ -28,7 +28,7 @@ Work in `~/letterlight-site` on branch `main`. A push to `main` deploys through 
      - Open with a short salutation in the mentor's voice (max 15 words). Do not end the body with a sign-off or the mentor's name; put the sign-off in `signoff` (Seneca: "Farewell.") and initials, if the mentor signs that way, in `signature`.
      - Do not quote the mentor inside the body; the verified quote shows separately.
    - **Guide:** `src/journaling-prompts/<problem>.md` with `problem, title, description, sensitive, date`.
-     - Body: a short intro, a "## How to use these prompts" section, then 15–30 prompts as `-` items under `##` groups.
+     - Body: a short intro, a "## How to use these prompts" section, then 15–30 prompts as `-` items under `##` groups. If the title starts with a number, it must equal the prompt count (the check enforces this).
    - Titles and descriptions use the words people type into search (the topic's `query`).
    - Then run the `avoid-ai-writing` skill on each body, editing in place.
 5. **Check.** Run `npm run check -- <new paths>`.

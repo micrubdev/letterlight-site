@@ -39,6 +39,7 @@ Writing a worry down won't make it disappear. It does move it from your head ont
 - How does your body feel right now, from head to feet? Where are you holding tension?
 - What is one thing that went fine today, however small?
 - Write about a place where you feel safe. Fill in the details: light, sounds, temperature.
+- Breathe in for four counts and out for six, five times. Then write one sentence about how your body feels now.
 
 ## Looking at the pattern
 

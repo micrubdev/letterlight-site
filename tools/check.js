@@ -73,6 +73,8 @@ export function checkPage(file, ctx) {
   } else {
     const n = guidePrompts(body);
     if (n < L.guideMin || n > L.guideMax) errors.push(`prompts: ${n}, a guide needs ${L.guideMin}-${L.guideMax}`);
+    const promised = String(data.title ?? '').match(/^(\d+)\s/);
+    if (promised && Number(promised[1]) !== n) errors.push(`title: promises ${promised[1]} prompts, the page has ${n}`);
   }
 
   const mine = shingles(body);
