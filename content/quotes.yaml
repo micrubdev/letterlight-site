@@ -63,3 +63,35 @@
   translation: James Legge (1891)
   source_url: https://en.wikisource.org/wiki/Tâo_Teh_King
   verified: 2026-11-19
+- id: buddha-result-of-thought
+  mentor: buddha
+  text: "All that we are is the result of what we have thought: it is founded on our thoughts, it is made up of our thoughts."
+  work: The Dhammapada
+  location: Verse 1
+  translation: F. Max Müller (1881)
+  source_url: https://en.wikisource.org/wiki/Dhammapada_(Muller)
+  verified: 2026-11-19
+- id: thoreau-companionable-solitude
+  mentor: thoreau
+  text: "I never found the companion that was so companionable as solitude."
+  work: Walden
+  location: Chapter V, "Solitude"
+  translation: null
+  source_url: https://en.wikisource.org/wiki/Walden_(1893)_Thoreau/Chapter_V
+  verified: 2026-11-19
+- id: emerson-midst-of-crowd
+  mentor: emerson
+  text: "It is easy in the world to live after the world's opinion; it is easy in solitude to live after our own; but the great man is he who in the midst of the crowd keeps with perfect sweetness the independence of solitude."
+  work: Self-Reliance
+  location: Essays, First Series (1841)
+  translation: null
+  source_url: https://en.wikisource.org/wiki/Essays:_First_Series/Self-Reliance
+  verified: 2026-11-19
+- id: chekhov-both-ends-of-chain
+  mentor: chekhov
+  text: "And it seemed to him that he had just seen both ends of that chain; that when he touched one end the other quivered."
+  work: The Student
+  location: The Tales of Chekhov, Volume 6
+  translation: Constance Garnett (1918)
+  source_url: https://en.wikisource.org/wiki/The_Tales_of_Chekhov/Volume_6/The_Student
+  verified: 2026-11-19

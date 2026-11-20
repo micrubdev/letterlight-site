@@ -57,25 +57,25 @@
   mentor: buddha
   problem: anxiety
   query: buddhist advice for anxiety and worry
-  status: queued
+  status: published
 - slug: letters/thoreau-on-loneliness
   type: letter
   mentor: thoreau
   problem: loneliness
   query: thoreau on loneliness and solitude
-  status: queued
+  status: published
 - slug: letters/emerson-on-loneliness
   type: letter
   mentor: emerson
   problem: loneliness
   query: emerson on being alone
-  status: queued
+  status: published
 - slug: letters/chekhov-on-loneliness
   type: letter
   mentor: chekhov
   problem: loneliness
   query: how to cope with loneliness letter
-  status: queued
+  status: published
 - slug: journaling-prompts/anxiety
   type: guide
   problem: anxiety
@@ -85,7 +85,7 @@
   type: guide
   problem: gratitude
   query: gratitude journal prompts
-  status: queued
+  status: published
 - slug: journaling-prompts/burnout
   type: guide
   problem: burnout
