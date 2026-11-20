@@ -90,31 +90,31 @@
   type: guide
   problem: burnout
   query: journaling prompts for burnout
-  status: queued
+  status: published
 - slug: letters/seneca-on-burnout
   type: letter
   mentor: seneca
   problem: burnout
   query: seneca on overwork and burnout
-  status: queued
+  status: published
 - slug: letters/lao-tzu-on-burnout
   type: letter
   mentor: lao-tzu
   problem: burnout
   query: lao tzu on doing less burnout
-  status: queued
+  status: published
 - slug: letters/rumi-on-breakup
   type: letter
   mentor: rumi
   problem: breakup
   query: rumi on heartbreak after a breakup
-  status: queued
+  status: published
 - slug: letters/dostoevsky-on-breakup
   type: letter
   mentor: dostoevsky
   problem: breakup
   query: how to get over a breakup philosophy
-  status: queued
+  status: published
 - slug: letters/seneca-on-procrastination
   type: letter
   mentor: seneca

@@ -95,3 +95,35 @@
   translation: Constance Garnett (1918)
   source_url: https://en.wikisource.org/wiki/The_Tales_of_Chekhov/Volume_6/The_Student
   verified: 2026-11-19
+- id: seneca-burdens-of-the-mind
+  mentor: seneca
+  text: "You must lay aside the burdens of the mind; until you do this, no place will satisfy you."
+  work: Moral Letters to Lucilius
+  location: Letter 28
+  translation: Richard Mott Gummere (1917)
+  source_url: https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_28
+  verified: 2026-11-20
+- id: laotzu-vessel-unfilled
+  mentor: lao-tzu
+  text: "It is better to leave a vessel unfilled, than to attempt to carry it when it is full."
+  work: Tao Te Ching
+  location: Chapter 9
+  translation: James Legge (1891)
+  source_url: https://en.wikisource.org/wiki/Tâo_Teh_King
+  verified: 2026-11-20
+- id: rumi-garden-of-love
+  mentor: rumi
+  text: "The fertile garden of love, as it is boundless, Contains other fruits besides joy and sorrow."
+  work: The Masnavi
+  location: Book I
+  translation: Edward Henry Whinfield (1887)
+  source_url: https://en.wikisource.org/wiki/Masnavi_I_Ma'navi/Book_I
+  verified: 2026-11-20
+- id: dostoevsky-moment-of-happiness
+  mentor: dostoevsky
+  text: "My God, a whole moment of happiness! Is that too little for the whole of a man's life?"
+  work: White Nights
+  location: "Morning"
+  translation: Constance Garnett (1918)
+  source_url: https://en.wikisource.org/wiki/White_Nights_and_Other_Stories/White_Nights/Morning
+  verified: 2026-11-20

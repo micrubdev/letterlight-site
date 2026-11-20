@@ -58,7 +58,8 @@ test('home page links into the content', () => {
   const h = read('index.html');
   assert.match(h, /href="\/letters\/"/);
   assert.match(h, /href="\/journaling-prompts\/"/);
-  assert.match(h, /href="\/letters\/seneca-on-losing-your-job\/"/);
+  // The home page shows the newest letters, so count letter links instead of expecting one fixed page.
+  assert.equal(new Set(h.match(/href="\/letters\/[a-z-]+\/"/g)).size, 6);
 });
 test('letters index lists every letter grouped by problem, linking each problem hub', () => {
   const h = read('letters/index.html');
