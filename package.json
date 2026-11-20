@@ -5,7 +5,7 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "test": "node --test \"test/**/*.test.js\"",
+    "test": "eleventy --quiet && LL_BUILT=1 node --test \"test/**/*.test.js\"",
     "check": "node tools/check.js"
   },
   "devDependencies": {
