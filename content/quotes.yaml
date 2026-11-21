@@ -167,3 +167,35 @@
   translation: Benjamin Jowett (1871)
   source_url: https://en.wikisource.org/wiki/Apology_(Jowett)
   verified: 2026-11-21
+- id: tolstoy-in-place-of-death
+  mentor: tolstoy
+  text: "There was no fear because there was no death. In place of death there was light."
+  work: The Death of Ivan Ilych
+  location: Chapter XII
+  translation: Louise and Aylmer Maude
+  source_url: https://en.wikisource.org/wiki/The_Death_of_Ivan_Ilych/XII
+  verified: 2026-11-21
+- id: seneca-remedy-for-anger
+  mentor: seneca
+  text: "The greatest remedy for anger is delay"
+  work: Of Anger
+  location: Book II, chapter 29
+  translation: Aubrey Stewart (1900)
+  source_url: https://en.wikisource.org/wiki/Of_Anger/Book_II
+  verified: 2026-11-21
+- id: buddha-overcome-anger-by-love
+  mentor: buddha
+  text: "Let a man overcome anger by love, let him overcome evil by good"
+  work: The Dhammapada
+  location: Verse 223
+  translation: F. Max Müller (1881)
+  source_url: https://en.wikisource.org/wiki/Dhammapada_(Muller)
+  verified: 2026-11-21
+- id: thoreau-direction-of-dreams
+  mentor: thoreau
+  text: "if one advances confidently in the direction of his dreams, and endeavors to live the life which he has imagined, he will meet with a success unexpected in common hours."
+  work: Walden
+  location: Conclusion
+  translation: null
+  source_url: https://en.wikisource.org/wiki/Walden_(1893)_Thoreau/Chapter_XVIII
+  verified: 2026-11-21

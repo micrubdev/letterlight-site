@@ -150,25 +150,25 @@
   mentor: tolstoy
   problem: fear-of-death
   query: tolstoy on fear of death meaning of life
-  status: queued
+  status: published
 - slug: letters/seneca-on-anger
   type: letter
   mentor: seneca
   problem: anger
   query: seneca on anger how to control it
-  status: queued
+  status: published
 - slug: letters/buddha-on-anger
   type: letter
   mentor: buddha
   problem: anger
   query: buddha on anger
-  status: queued
+  status: published
 - slug: letters/thoreau-on-starting-over
   type: letter
   mentor: thoreau
   problem: starting-over
   query: thoreau on starting over and simplifying life
-  status: queued
+  status: published
 - slug: letters/hillel-on-starting-over
   type: letter
   mentor: hillel
@@ -191,7 +191,7 @@
   type: guide
   problem: procrastination
   query: journaling prompts for procrastination
-  status: queued
+  status: published
 - slug: journaling-prompts/envy
   type: guide
   problem: envy
@@ -208,4 +208,27 @@
   mentor: rumi
   problem: starting-over
   query: rumi on new beginnings and starting over
+  status: queued
+- slug: journaling-prompts/anger
+  type: guide
+  problem: anger
+  query: journaling prompts for anger
+  status: queued
+- slug: letters/marcus-aurelius-on-anger
+  type: letter
+  mentor: marcus-aurelius
+  problem: anger
+  query: marcus aurelius on anger meditations
+  status: queued
+- slug: letters/epictetus-on-fear-of-death
+  type: letter
+  mentor: epictetus
+  problem: fear-of-death
+  query: stoic view on fear of death epictetus
+  status: queued
+- slug: letters/emerson-on-starting-over
+  type: letter
+  mentor: emerson
+  problem: starting-over
+  query: emerson on new beginnings and self-reliance
   status: queued
