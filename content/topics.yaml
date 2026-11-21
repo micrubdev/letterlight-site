@@ -120,31 +120,31 @@
   mentor: seneca
   problem: procrastination
   query: seneca on procrastination and wasted time
-  status: queued
+  status: published
 - slug: letters/marcus-aurelius-on-procrastination
   type: letter
   mentor: marcus-aurelius
   problem: procrastination
   query: marcus aurelius on getting out of bed procrastination
-  status: queued
+  status: published
 - slug: letters/epictetus-on-envy
   type: letter
   mentor: epictetus
   problem: envy
   query: stoic advice on envy and comparing yourself
-  status: queued
+  status: published
 - slug: letters/confucius-on-envy
   type: letter
   mentor: confucius
   problem: envy
   query: confucius on comparing yourself to others
-  status: queued
+  status: published
 - slug: letters/socrates-on-fear-of-death
   type: letter
   mentor: socrates
   problem: fear-of-death
   query: socrates on the fear of death
-  status: queued
+  status: published
 - slug: letters/tolstoy-on-fear-of-death
   type: letter
   mentor: tolstoy
@@ -186,4 +186,26 @@
   mentor: maimonides
   problem: caring-for-a-parent
   query: jewish wisdom on caring for a parent
+  status: queued
+- slug: journaling-prompts/procrastination
+  type: guide
+  problem: procrastination
+  query: journaling prompts for procrastination
+  status: queued
+- slug: journaling-prompts/envy
+  type: guide
+  problem: envy
+  query: journaling prompts for jealousy and envy
+  status: queued
+- slug: letters/thoreau-on-burnout
+  type: letter
+  mentor: thoreau
+  problem: burnout
+  query: thoreau simplify your life burnout
+  status: queued
+- slug: letters/rumi-on-starting-over
+  type: letter
+  mentor: rumi
+  problem: starting-over
+  query: rumi on new beginnings and starting over
   status: queued

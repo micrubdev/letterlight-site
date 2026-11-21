@@ -127,3 +127,43 @@
   translation: Constance Garnett (1918)
   source_url: https://en.wikisource.org/wiki/White_Nights_and_Other_Stories/White_Nights/Morning
   verified: 2026-11-20
+- id: seneca-while-we-postpone
+  mentor: seneca
+  text: "Lay hold of to-day's task, and you will not need to depend so much upon to-morrow's. While we are postponing, life speeds by."
+  work: Moral Letters to Lucilius
+  location: Letter 1
+  translation: Richard Mott Gummere (1917)
+  source_url: https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_1
+  verified: 2026-11-21
+- id: marcus-rising-to-work
+  mentor: marcus-aurelius
+  text: "Why then am I dissatisfied if I am going to do the things for which I exist and for which I was brought into the world? Or have I been made for this, to lie in the bed-clothes and keep myself warm?"
+  work: Meditations
+  location: Book V, 1
+  translation: George Long (1862)
+  source_url: https://en.wikisource.org/wiki/The_Thoughts_of_the_Emperor_Marcus_Aurelius_Antoninus/Book_V
+  verified: 2026-11-21
+- id: epictetus-preferred-before-you
+  mentor: epictetus
+  text: "Is anyone preferred before you at an entertainment, or in a compliment, or in being admitted to a consultation? If these things are good, you ought to be glad that he has gotten them; and if they are evil, don't be grieved that you have not gotten them."
+  work: The Enchiridion
+  location: Chapter 25
+  translation: Elizabeth Carter (1758)
+  source_url: https://classics.mit.edu/Epictetus/epicench.html
+  verified: 2026-11-21
+- id: confucius-men-of-worth
+  mentor: confucius
+  text: "When we see men of worth, we should think of equalling them; when we see men of a contrary character, we should turn inwards and examine ourselves."
+  work: The Analects
+  location: Book IV, Chapter 17
+  translation: James Legge (1861)
+  source_url: https://en.wikisource.org/wiki/The_Chinese_Classics/Volume_1/Confucian_Analects/IV
+  verified: 2026-11-21
+- id: socrates-fear-of-death
+  mentor: socrates
+  text: "For the fear of death is indeed the pretence of wisdom, and not real wisdom, being a pretence of knowing the unknown"
+  work: Plato, Apology
+  location: 29a
+  translation: Benjamin Jowett (1871)
+  source_url: https://en.wikisource.org/wiki/Apology_(Jowett)
+  verified: 2026-11-21
