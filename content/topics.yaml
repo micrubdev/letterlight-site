@@ -174,19 +174,19 @@
   mentor: hillel
   problem: starting-over
   query: if not now when starting over in life
-  status: queued
+  status: published
 - slug: letters/confucius-on-caring-for-a-parent
   type: letter
   mentor: confucius
   problem: caring-for-a-parent
   query: confucius on caring for ageing parents
-  status: queued
+  status: published
 - slug: letters/maimonides-on-caring-for-a-parent
   type: letter
   mentor: maimonides
   problem: caring-for-a-parent
   query: jewish wisdom on caring for a parent
-  status: queued
+  status: published
 - slug: journaling-prompts/procrastination
   type: guide
   problem: procrastination
@@ -196,13 +196,13 @@
   type: guide
   problem: envy
   query: journaling prompts for jealousy and envy
-  status: queued
+  status: published
 - slug: letters/thoreau-on-burnout
   type: letter
   mentor: thoreau
   problem: burnout
   query: thoreau simplify your life burnout
-  status: queued
+  status: published
 - slug: letters/rumi-on-starting-over
   type: letter
   mentor: rumi
@@ -231,4 +231,27 @@
   mentor: emerson
   problem: starting-over
   query: emerson on new beginnings and self-reliance
+  status: queued
+- slug: journaling-prompts/starting-over
+  type: guide
+  problem: starting-over
+  query: journaling prompts for starting over
+  status: queued
+- slug: letters/marcus-aurelius-on-fear-of-death
+  type: letter
+  mentor: marcus-aurelius
+  problem: fear-of-death
+  query: marcus aurelius on death and mortality
+  status: queued
+- slug: letters/emerson-on-envy
+  type: letter
+  mentor: emerson
+  problem: envy
+  query: emerson self-reliance envy is ignorance
+  status: queued
+- slug: letters/chekhov-on-burnout
+  type: letter
+  mentor: chekhov
+  problem: burnout
+  query: chekhov on overwork and burnout
   status: queued

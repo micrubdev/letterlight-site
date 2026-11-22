@@ -199,3 +199,35 @@
   translation: null
   source_url: https://en.wikisource.org/wiki/Walden_(1893)_Thoreau/Chapter_XVIII
   verified: 2026-11-21
+- id: hillel-if-not-now
+  mentor: hillel
+  text: "If I am not for myself, who is for me? And if I am for myself alone, what then am I? And if not now, then when?"
+  work: Pirkei Avot (Ethics of the Fathers)
+  location: Chapter 1, 14
+  translation: Wilhelm Bacher, Encyclopædia Britannica (1911)
+  source_url: https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Hillel
+  verified: 2026-11-22
+- id: confucius-years-of-parents
+  mentor: confucius
+  text: "The years of parents may by no means not be kept in the memory, as an occasion at once for joy and for fear."
+  work: The Analects
+  location: Book IV, chapter 21
+  translation: James Legge (1861)
+  source_url: https://en.wikisource.org/wiki/The_Chinese_Classics/Volume_1/Confucian_Analects/IV
+  verified: 2026-11-22
+- id: maimonides-mean-between-extremes
+  mentor: maimonides
+  text: "maintaining the mean between two equally bad extremes, the too much and the too little"
+  work: Eight Chapters on Ethics
+  location: Chapter IV
+  translation: Joseph I. Gorfinkle (1912)
+  source_url: https://en.wikisource.org/wiki/Eight_chapters_of_Maimonides_on_Ethics/Chapter_IV
+  verified: 2026-11-22
+- id: thoreau-frittered-away
+  mentor: thoreau
+  text: "Our life is frittered away by detail."
+  work: Walden
+  location: Chapter II, "Where I Lived, and What I Lived For"
+  translation: null
+  source_url: https://en.wikisource.org/wiki/Walden_(1893)_Thoreau/Chapter_II
+  verified: 2026-11-22
