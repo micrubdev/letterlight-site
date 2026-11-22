@@ -208,30 +208,30 @@
   mentor: rumi
   problem: starting-over
   query: rumi on new beginnings and starting over
-  status: queued
+  status: published
 - slug: journaling-prompts/anger
   type: guide
   problem: anger
   query: journaling prompts for anger
-  status: queued
+  status: published
 - slug: letters/marcus-aurelius-on-anger
   type: letter
   mentor: marcus-aurelius
   problem: anger
   query: marcus aurelius on anger meditations
-  status: queued
+  status: published
 - slug: letters/epictetus-on-fear-of-death
   type: letter
   mentor: epictetus
   problem: fear-of-death
   query: stoic view on fear of death epictetus
-  status: queued
+  status: published
 - slug: letters/emerson-on-starting-over
   type: letter
   mentor: emerson
   problem: starting-over
   query: emerson on new beginnings and self-reliance
-  status: queued
+  status: published
 - slug: journaling-prompts/starting-over
   type: guide
   problem: starting-over
@@ -254,4 +254,39 @@
   mentor: chekhov
   problem: burnout
   query: chekhov on overwork and burnout
+  status: queued
+- slug: letters/seneca-on-loneliness
+  type: letter
+  mentor: seneca
+  problem: loneliness
+  query: seneca on loneliness and friendship
+  status: queued
+- slug: letters/epictetus-on-anxiety
+  type: letter
+  mentor: epictetus
+  problem: anxiety
+  query: epictetus on anxiety what is in your control
+  status: queued
+- slug: letters/buddha-on-breakup
+  type: letter
+  mentor: buddha
+  problem: breakup
+  query: buddhist advice for a breakup
+  status: queued
+- slug: journaling-prompts/loneliness
+  type: guide
+  problem: loneliness
+  query: journaling prompts for loneliness
+  status: queued
+- slug: letters/tolstoy-on-caring-for-a-parent
+  type: letter
+  mentor: tolstoy
+  problem: caring-for-a-parent
+  query: tolstoy on caring for elderly parents
+  status: queued
+- slug: letters/chekhov-on-procrastination
+  type: letter
+  mentor: chekhov
+  problem: procrastination
+  query: chekhov on work and procrastination
   status: queued

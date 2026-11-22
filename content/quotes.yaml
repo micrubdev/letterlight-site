@@ -231,3 +231,35 @@
   translation: null
   source_url: https://en.wikisource.org/wiki/Walden_(1893)_Thoreau/Chapter_II
   verified: 2026-11-22
+- id: rumi-stream-renewed
+  mentor: rumi
+  text: "Life, like a stream of water, is renewed and renewed, Though it wears the appearance of continuity in form."
+  work: Masnavi
+  location: Book I
+  translation: E. H. Whinfield (1898)
+  source_url: https://en.wikisource.org/wiki/Masnavi_I_Ma'navi/Book_I
+  verified: 2026-11-22
+- id: marcus-pain-of-anger
+  mentor: marcus-aurelius
+  text: "consider how much more pain is brought on us by the anger and vexation caused by such acts than by the acts themselves, at which we are angry and vexed"
+  work: Meditations
+  location: Book XI, 18
+  translation: George Long (1862)
+  source_url: https://en.wikisource.org/wiki/The_Thoughts_of_the_Emperor_Marcus_Aurelius_Antoninus/Book_XI
+  verified: 2026-11-22
+- id: epictetus-notion-of-death
+  mentor: epictetus
+  text: "Men are disturbed, not by things, but by the principles and notions which they form concerning things. Death, for instance, is not terrible, else it would have appeared so to Socrates. But the terror consists in our notion of death that it is terrible."
+  work: The Enchiridion
+  location: Chapter 5
+  translation: Elizabeth Carter (1758)
+  source_url: https://classics.mit.edu/Epictetus/epicench.html
+  verified: 2026-11-22
+- id: emerson-every-end-a-beginning
+  mentor: emerson
+  text: "Our life is an apprenticeship to the truth, that around every circle another can be drawn; that there is no end in nature, but every end is a beginning"
+  work: Circles
+  location: Essays, First Series (1841)
+  translation: null
+  source_url: https://en.wikisource.org/wiki/Essays:_First_Series/Circles
+  verified: 2026-11-22
