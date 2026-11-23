@@ -263,3 +263,35 @@
   translation: null
   source_url: https://en.wikisource.org/wiki/Essays:_First_Series/Circles
   verified: 2026-11-22
+- id: marcus-ten-thousand-years
+  mentor: marcus-aurelius
+  text: "Do not act as if thou wert going to live ten thousand years. Death hangs over thee. While thou livest, while it is in thy power, be good."
+  work: Meditations
+  location: Book IV, 17
+  translation: George Long (1862)
+  source_url: https://en.wikisource.org/wiki/The_Thoughts_of_the_Emperor_Marcus_Aurelius_Antoninus/Book_IV
+  verified: 2026-11-23
+- id: emerson-envy-is-ignorance
+  mentor: emerson
+  text: "There is a time in every man's education when he arrives at the conviction that envy is ignorance"
+  work: Self-Reliance
+  location: Essays, First Series (1841)
+  translation: null
+  source_url: https://en.wikisource.org/wiki/Essays:_First_Series/Self-Reliance
+  verified: 2026-11-23
+- id: chekhov-work-without-rest
+  mentor: chekhov
+  text: "we shall work for others without rest, both now and when we are old"
+  work: Uncle Vanya
+  location: Act IV (Sonia)
+  translation: Marian Fell (1916)
+  source_url: https://en.wikisource.org/wiki/Plays_by_Anton_Tchekoff_(Fell)/Uncle_Vanya/Act_4
+  verified: 2026-11-23
+- id: seneca-regards-himself-only
+  mentor: seneca
+  text: "He who regards himself only, and enters upon friendships for this reason, reckons wrongly."
+  work: Moral Letters to Lucilius
+  location: Letter 9
+  translation: Richard Mott Gummere (1917)
+  source_url: https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_9
+  verified: 2026-11-23
