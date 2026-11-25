@@ -295,3 +295,35 @@
   translation: Richard Mott Gummere (1917)
   source_url: https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_9
   verified: 2026-11-23
+- id: epictetus-in-our-control
+  mentor: epictetus
+  text: "Some things are in our control and others not."
+  work: The Enchiridion
+  location: Chapter 1
+  translation: Elizabeth Carter (1758)
+  source_url: https://classics.mit.edu/Epictetus/epicench.html
+  verified: 2026-11-25
+- id: buddha-call-nothing-our-own
+  mentor: buddha
+  text: "Let us live happily then, though we call nothing our own!"
+  work: The Dhammapada
+  location: Verse 200
+  translation: F. Max Müller (1881)
+  source_url: https://en.wikisource.org/wiki/Dhammapada_(Muller)
+  verified: 2026-11-25
+- id: tolstoy-most-necessary-man
+  mentor: tolstoy
+  text: "The most necessary man is he with whom you are, for no man knows whether he will ever have dealings with any one else: and the most important affair is, to do him good"
+  work: Three Questions
+  location: the closing paragraph
+  translation: Louise and Aylmer Maude (1906)
+  source_url: https://en.wikisource.org/wiki/Twenty-three_Tales/Three_Questions
+  verified: 2026-11-25
+- id: chekhov-only-philosophize
+  mentor: chekhov
+  text: "we only philosophize, we complain that we are dull, or we drink vodka."
+  work: The Cherry Orchard
+  location: Act II (Trofimov)
+  translation: Julius West (1916)
+  source_url: https://en.wikisource.org/wiki/The_Cherry_Orchard/Act_II
+  verified: 2026-11-25
