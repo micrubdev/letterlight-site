@@ -1,0 +1,21 @@
+---
+layout: base.njk
+bodyClass: doc
+permalink: /features/
+title: Letterlight app features, with screenshots
+description: "See the Letterlight journal app for Android: mentor letters, small practices, a daily routine and your own sources, with screenshots of each screen."
+---
+<main>
+{% include "page-top.njk" %}
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Letterlight</a> › <span>App features</span></nav>
+<h1>What the app does</h1>
+<ul class="feature-list">
+{%- for p in collections.features %}
+  <li>
+    <a href="{{ p.url }}"><img src="{{ ('/assets/app/' + p.data.shots[0].img + '.webp') | v }}" alt="" width="540" height="1140"{% if loop.index > 2 %} loading="lazy"{% endif %}><span>{{ p.data.name }}</span></a>
+    <p>{{ p.data.summary }}</p>
+  </li>
+{%- endfor %}
+</ul>
+{% include "page-foot.njk" %}
+</main>

@@ -13,10 +13,12 @@ export const LIMITS = { titleMax: 60, descMin: 120, descMax: 160, wordsMin: 600,
 
 const isLetter = (p) => p.split(path.sep).join('/').includes('/letters/');
 const isFacts = (p) => p.split(path.sep).join('/').includes('/facts/');
+const isFeature = (p) => p.split(path.sep).join('/').includes('/features/');
 const factsOf = (data) => (Array.isArray(data?.facts) ? data.facts : []);
-/** The text a reader sees: the body, plus the facts kept in front matter. */
-const prose = (p) => [p.body, ...factsOf(p.data).flatMap((f) => [f.title, f.text])].join('\n\n');
-const slugOf = (p) => (isFacts(p.path) ? `facts/${p.data.mentor}` : isLetter(p.path) ? `letters/${p.data.mentor}-on-${p.data.problem}` : `journaling-prompts/${p.data.problem}`);
+const shotsOf = (data) => (Array.isArray(data?.shots) ? data.shots : []);
+/** The text a reader sees: the body, plus the facts or screenshots kept in front matter. */
+const prose = (p) => [p.body, ...factsOf(p.data).flatMap((f) => [f.title, f.text]), ...shotsOf(p.data).flatMap((s) => [s.title, s.text])].join('\n\n');
+const slugOf = (p) => (isFeature(p.path) ? `features/${path.basename(p.path, '.md')}` : isFacts(p.path) ? `facts/${p.data.mentor}` : isLetter(p.path) ? `letters/${p.data.mentor}-on-${p.data.problem}` : `journaling-prompts/${p.data.problem}`);
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /** Prompts in a guide: list items, except those under a "How to use" heading. */
@@ -42,11 +44,18 @@ export function checkPage(file, ctx) {
   if (dl < L.descMin || dl > L.descMax) errors.push(`description: ${dl} characters, want ${L.descMin}-${L.descMax}`);
   if (!data.date) errors.push('date: missing');
   else if (data.updated && new Date(data.updated) < new Date(data.date)) errors.push('updated: before the publish date');
-  if (isFacts(file.path)) { /* a facts page belongs to a mentor, not a problem */ }
+  if (isFacts(file.path) || isFeature(file.path)) { /* these pages don't belong to a problem */ }
   else if (!problem) errors.push(`problem: unknown "${data.problem}" (add it to src/_data/problems.json)`);
   else if (problem.sensitive && data.sensitive !== true) errors.push(`sensitive: "${problem.id}" is a sensitive problem, set sensitive: true`);
 
-  if (isFacts(file.path)) {
+  if (isFeature(file.path)) {
+    for (const k of ['name', 'summary', 'order']) if (!data[k]) errors.push(`${k}: missing`);
+    if (!shotsOf(data).length) errors.push('shots: a feature page needs at least one screenshot');
+    shotsOf(data).forEach((s, i) => {
+      for (const k of ['img', 'title', 'text', 'alt']) if (!s[k]) errors.push(`shots[${i + 1}]: ${k} missing`);
+      if (s.img && !fs.existsSync(`src/assets/app/${s.img}.webp`)) errors.push(`shots[${i + 1}]: src/assets/app/${s.img}.webp not found`);
+    });
+  } else if (isFacts(file.path)) {
     if (!ctx.mentors.some((m) => m.id === data.mentor)) errors.push(`mentor: unknown "${data.mentor}"`);
     const facts = factsOf(data);
     if (facts.length < L.factsMin || facts.length > L.factsMax) errors.push(`facts: ${facts.length}, want ${L.factsMin}-${L.factsMax}`);
@@ -122,7 +131,7 @@ const pagesIn = (dir) => (fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) =>
 
 function main(args) {
   const json = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
-  const all = [...pagesIn('src/letters'), ...pagesIn('src/journaling-prompts'), ...pagesIn('src/facts')].map(readPage);
+  const all = [...pagesIn('src/letters'), ...pagesIn('src/journaling-prompts'), ...pagesIn('src/facts'), ...pagesIn('src/features')].map(readPage);
   const ctx = {
     mentors: json('src/_data/mentors.json'),
     problems: json('src/_data/problems.json'),

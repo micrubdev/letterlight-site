@@ -25,6 +25,7 @@ export default function (eleventyConfig) {
   const facts = (api) => api.getFilteredByGlob(`${input}/facts/*.md`).sort(byDate);
   eleventyConfig.addCollection('guides', guides);
   eleventyConfig.addCollection('facts', facts);
+  eleventyConfig.addCollection('features', (api) => api.getFilteredByGlob(`${input}/features/*.md`).sort((a, b) => a.data.order - b.data.order));
   eleventyConfig.addCollection('mentorsWithLetters', (api) => {
     const used = new Set(letters(api).map((p) => p.data.mentor));
     return mentors.filter((m) => used.has(m.id));

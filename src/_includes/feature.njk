@@ -1,0 +1,30 @@
+---
+layout: base.njk
+---
+<main>
+{% include "page-top.njk" %}
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Letterlight</a> › <a href="/features/">App features</a> › <span>{{ name }}</span></nav>
+<article>
+  <h1>{{ title }}</h1>
+{{ content | safe }}
+  {%- for s in shots %}
+  <section class="shot">
+    <div>
+      <h2>{{ s.title }}</h2>
+      <p>{{ s.text }}</p>
+    </div>
+    <img src="{{ ('/assets/app/' + s.img + '.webp') | v }}" alt="{{ s.alt }}" width="540" height="1140"{% if not loop.first %} loading="lazy"{% endif %}>
+  </section>
+  {%- endfor %}
+  <p class="ai-label">The screens come from the app. The entries and letters on them are samples written for this page. In the app, letters are written by AI in the voice of the mentor you choose, not by the real person.</p>
+</article>
+<section class="related" aria-labelledby="rel-features">
+  <h2 id="rel-features">More app features</h2>
+  <ul>
+  {%- for p in collections.features %}{% if p.url != page.url %}
+    <li><a href="{{ p.url }}">{{ p.data.name }}</a></li>
+  {%- endif %}{% endfor %}
+  </ul>
+</section>
+{% include "page-foot.njk" %}
+</main>
