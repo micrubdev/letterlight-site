@@ -50,6 +50,8 @@ deploys after a push.
 
 - **About 80% mentor letters.** One mentor writes to one real problem, e.g. "Marcus
   Aurelius on a job you hate" or "Rumi on grief after a breakup".
+- **Changed 2026-11-25:** new pages are about 80% letters and 20% facts pages (`/facts/<mentor>/`,
+  true stories with checked sources). No new journaling guides; the live ones stay.
 - **About 20% journaling guides.** Prompt lists for searched topics (anxiety, grief,
   gratitude, burnout), each linking to the matching letters.
 - **Call to action:** beta waitlist signup on every page.

@@ -17,15 +17,19 @@ const htmlToText = (html) =>
     .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'")
     .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)));
 
+/** The plain text of a public-domain source page. */
+export async function sourceText(sourceUrl) {
+  // Wikisource pages transclude their text; ?action=render returns it as plain HTML.
+  const url = sourceUrl.includes('wikisource.org/wiki/') ? `${sourceUrl}?action=render` : sourceUrl;
+  const res = await fetch(url, { headers: { 'User-Agent': 'letterlight-quote-check/1.0' } });
+  if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
+  return htmlToText(await res.text());
+}
+
 async function main(id) {
   const q = (yaml.load(fs.readFileSync('content/quotes.yaml', 'utf8')) ?? []).find((x) => x.id === id);
   if (!q) throw new Error(`no quote with id ${id} in content/quotes.yaml`);
-  // Wikisource pages transclude their text; ?action=render returns it as plain HTML.
-  const url = q.source_url.includes('wikisource.org/wiki/') ? `${q.source_url}?action=render` : q.source_url;
-  const res = await fetch(url, { headers: { 'User-Agent': 'letterlight-quote-check/1.0' } });
-  if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
-  const text = htmlToText(await res.text());
-  if (!quoteInText(q.text, text)) {
+  if (!quoteInText(q.text, await sourceText(q.source_url))) {
     console.error(`${id}: NOT found word for word in ${q.source_url}`);
     process.exit(1);
   }

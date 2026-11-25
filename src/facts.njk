@@ -1,0 +1,18 @@
+---
+layout: base.njk
+bodyClass: doc
+permalink: /facts/
+title: True stories and facts about great minds | Letterlight
+description: True stories and surprising facts about Seneca, Epictetus and other great minds, each with the source it comes from.
+---
+<main>
+{% include "page-top.njk" %}
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Letterlight</a> › <span>True stories</span></nav>
+<h1>True stories about great minds</h1>
+<ul>
+{%- for p in collections.facts %}
+  <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+{%- endfor %}
+</ul>
+{% include "page-foot.njk" %}
+</main>

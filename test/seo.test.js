@@ -18,10 +18,11 @@ test('sitemap lists every public page with lastmod', () => {
 test('robots allows all and points to the sitemap', () => {
   assert.equal(read('robots.txt'), 'User-agent: *\nAllow: /\nSitemap: https://letterlight.app/sitemap.xml\n');
 });
-test('feed has one entry per letter and guide', () => {
+test('feed has one entry per letter, guide and facts page', () => {
   const xml = read('feed.xml');
   assert.match(xml, /^<\?xml/);
-  const n = fs.readdirSync('src/letters').filter((f) => f.endsWith('.md')).length + fs.readdirSync('src/journaling-prompts').filter((f) => f.endsWith('.md')).length;
+  const count = (dir) => fs.readdirSync(`src/${dir}`).filter((f) => f.endsWith('.md')).length;
+  const n = count('letters') + count('journaling-prompts') + count('facts');
   assert.equal((xml.match(/<entry>/g) || []).length, n);
 });
 test('sitemap lastmod uses the updated date when a page has one, else its publish date', () => {

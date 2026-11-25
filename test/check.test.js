@@ -155,3 +155,29 @@ test('updated must not be before the publish date', () => {
   assert.ok(has(checkPage(guide(20, { date: new Date('2026-11-19'), updated: new Date('2026-11-18') }), ctx()), 'updated'));
   assert.deepEqual(checkPage(guide(20, { date: new Date('2026-11-19'), updated: new Date('2026-11-20') }), ctx()), []);
 });
+
+const fact = (i, extra = {}) => ({ title: `Fact ${i}`, text: words(40, `f${i}w`), source: 'Letter 56', source_url: 'https://en.wikisource.org/wiki/X', evidence: 'an exact passage from the source', ...extra });
+const facts = (n, data = {}, over = {}) => ({
+  path: 'src/facts/seneca.md',
+  data: { mentor: 'seneca', title: `${n} true stories and facts about Seneca`, description: 'z'.repeat(140), facts: Array.from({ length: n }, (_, i) => fact(i, i === 0 ? over : {})), date: new Date('2026-11-25'), ...data },
+  body: 'A short intro.',
+});
+test('a good facts page passes without a problem', () => assert.deepEqual(checkPage(facts(6), ctx()), []));
+test('facts pages need 5 to 8 facts, matching a number in the title', () => {
+  assert.ok(has(checkPage(facts(4), ctx()), 'facts'));
+  assert.ok(has(checkPage(facts(9), ctx()), 'facts'));
+  assert.ok(has(checkPage(facts(6, { title: '7 facts about Seneca' }), ctx()), 'title'));
+  assert.ok(has(checkPage(facts(6, { facts: undefined }), ctx()), 'facts'));
+  assert.ok(has(checkPage(facts(6, { mentor: 'nobody' }), ctx()), 'mentor'));
+});
+test('a legend does not count towards the number in the title', () => {
+  assert.deepEqual(checkPage(facts(6, { title: '5 true stories about Seneca' }, { status: 'legend' }), ctx()), []);
+  assert.ok(has(checkPage(facts(6, {}, { status: 'legend' }), ctx()), 'title'));
+});
+test('every fact needs a title, text, source, https source_url and evidence', () => {
+  for (const k of ['title', 'text', 'source', 'source_url', 'evidence']) assert.ok(has(checkPage(facts(6, {}, { [k]: '' }), ctx()), 'facts[1]'), k);
+  assert.ok(has(checkPage(facts(6, {}, { source_url: 'http://x.org' }), ctx()), 'facts[1]'));
+  assert.ok(has(checkPage(facts(6, {}, { text: 'too short' }), ctx()), 'facts[1]'));
+  assert.ok(has(checkPage(facts(6, {}, { status: 'rumour' }), ctx()), 'facts[1]'));
+});
+test('banned phrases are found inside facts', () => assert.ok(has(checkPage(facts(6, {}, { text: `${words(30)} delve` }), ctx()), 'banned')));

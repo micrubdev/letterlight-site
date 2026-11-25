@@ -23,5 +23,9 @@ eleventyComputed:
   {%- endfor %}
   </ul>
 </section>
+{%- set factsPage = collections.facts | byMentor(m.id) %}
+{%- if factsPage.length %}
+<p class="related-guide">The real {{ m.name }}: <a href="{{ factsPage[0].url }}">{{ factsPage[0].data.title }}</a></p>
+{%- endif %}
 {% include "page-foot.njk" %}
 </main>

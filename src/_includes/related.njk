@@ -21,6 +21,10 @@
   </ul>
 </section>
 {%- endif %}
+{%- set factsPage = (collections.facts | byMentor(mentor)) if mentor else [] -%}
+{%- if factsPage.length %}
+<p class="related-guide">The real {{ mentorData.name }}: <a href="{{ factsPage[0].url }}">{{ factsPage[0].data.title }}</a></p>
+{%- endif %}
 {%- if guide.length %}
 <p class="related-guide">Write about it yourself: <a href="{{ guide[0].url }}">{{ guide[0].data.title }}</a></p>
 {%- endif %}

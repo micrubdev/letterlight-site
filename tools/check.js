@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Usage: npm run check [-- <page.md> ...]
-// Checks letters and guides before they are published. Prints "path: error" lines and exits 1 on any error.
+// Checks letters, guides and facts pages before they are published. Prints "path: error" lines and exits 1 on any error.
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
@@ -9,10 +9,14 @@ import { normalize, wordCount, shingles, jaccard, paragraphs } from './lib/text.
 
 export { normalize, wordCount, shingles, jaccard };
 
-export const LIMITS = { titleMax: 60, descMin: 120, descMax: 160, wordsMin: 600, wordsMax: 1100, guideMin: 15, guideMax: 30, similarMax: 0.35, perDay: 10, signoffMax: 40, signatureMax: 30, salutationMax: 15, closingMin: 6 };
+export const LIMITS = { titleMax: 60, descMin: 120, descMax: 160, wordsMin: 600, wordsMax: 1100, guideMin: 15, guideMax: 30, factsMin: 5, factsMax: 8, factWordsMin: 20, factWordsMax: 130, similarMax: 0.35, perDay: 10, signoffMax: 40, signatureMax: 30, salutationMax: 15, closingMin: 6 };
 
 const isLetter = (p) => p.split(path.sep).join('/').includes('/letters/');
-const slugOf = (p) => (isLetter(p.path) ? `letters/${p.data.mentor}-on-${p.data.problem}` : `journaling-prompts/${p.data.problem}`);
+const isFacts = (p) => p.split(path.sep).join('/').includes('/facts/');
+const factsOf = (data) => (Array.isArray(data?.facts) ? data.facts : []);
+/** The text a reader sees: the body, plus the facts kept in front matter. */
+const prose = (p) => [p.body, ...factsOf(p.data).flatMap((f) => [f.title, f.text])].join('\n\n');
+const slugOf = (p) => (isFacts(p.path) ? `facts/${p.data.mentor}` : isLetter(p.path) ? `letters/${p.data.mentor}-on-${p.data.problem}` : `journaling-prompts/${p.data.problem}`);
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /** Prompts in a guide: list items, except those under a "How to use" heading. */
@@ -38,10 +42,27 @@ export function checkPage(file, ctx) {
   if (dl < L.descMin || dl > L.descMax) errors.push(`description: ${dl} characters, want ${L.descMin}-${L.descMax}`);
   if (!data.date) errors.push('date: missing');
   else if (data.updated && new Date(data.updated) < new Date(data.date)) errors.push('updated: before the publish date');
-  if (!problem) errors.push(`problem: unknown "${data.problem}" (add it to src/_data/problems.json)`);
+  if (isFacts(file.path)) { /* a facts page belongs to a mentor, not a problem */ }
+  else if (!problem) errors.push(`problem: unknown "${data.problem}" (add it to src/_data/problems.json)`);
   else if (problem.sensitive && data.sensitive !== true) errors.push(`sensitive: "${problem.id}" is a sensitive problem, set sensitive: true`);
 
-  if (isLetter(file.path)) {
+  if (isFacts(file.path)) {
+    if (!ctx.mentors.some((m) => m.id === data.mentor)) errors.push(`mentor: unknown "${data.mentor}"`);
+    const facts = factsOf(data);
+    if (facts.length < L.factsMin || facts.length > L.factsMax) errors.push(`facts: ${facts.length}, want ${L.factsMin}-${L.factsMax}`);
+    const promised = String(data.title ?? '').match(/^(\d+)\s/);
+    // A legend is not a true story, so it doesn't count towards a number in the title.
+    const real = facts.filter((f) => f.status !== 'legend').length;
+    if (promised && Number(promised[1]) !== real) errors.push(`title: promises ${promised[1]} facts, the page has ${real} (legends not counted)`);
+    facts.forEach((f, i) => {
+      const at = `facts[${i + 1}]`;
+      for (const k of ['title', 'text', 'source', 'source_url', 'evidence']) if (!f[k]) errors.push(`${at}: ${k} missing`);
+      if (f.source_url && !/^https:\/\//.test(f.source_url)) errors.push(`${at}: source_url must start with https://`);
+      const w = wordCount(String(f.text ?? ''));
+      if (f.text && (w < L.factWordsMin || w > L.factWordsMax)) errors.push(`${at}: ${w} words, want ${L.factWordsMin}-${L.factWordsMax}`);
+      if (f.status && f.status !== 'legend') errors.push(`${at}: status "${f.status}", only "legend" is allowed`);
+    });
+  } else if (isLetter(file.path)) {
     const mentor = ctx.mentors.find((m) => m.id === data.mentor);
     if (!mentor) errors.push(`mentor: unknown "${data.mentor}"`);
     const words = wordCount(body);
@@ -78,15 +99,15 @@ export function checkPage(file, ctx) {
     if (promised && Number(promised[1]) !== n) errors.push(`title: promises ${promised[1]} prompts, the page has ${n}`);
   }
 
-  const mine = shingles(body);
+  const mine = shingles(prose(file));
   for (const other of ctx.others) {
     if (other.path === file.path) continue;
     if (other.data && slugOf(other) === slugOf(file)) errors.push(`slug: same URL as ${other.path}`);
-    const j = jaccard(mine, shingles(other.body));
+    const j = jaccard(mine, shingles(prose(other)));
     if (j > L.similarMax) errors.push(`similar: ${Math.round(j * 100)}% overlap with ${other.path}`);
   }
 
-  const text = normalize(body);
+  const text = normalize(prose(file));
   for (const phrase of ctx.banned) {
     if (new RegExp(`(^|[^\\p{L}])${esc(normalize(phrase))}(?![\\p{L}])`, 'u').test(text)) errors.push(`banned: "${phrase}"`);
   }
@@ -101,7 +122,7 @@ const pagesIn = (dir) => (fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) =>
 
 function main(args) {
   const json = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
-  const all = [...pagesIn('src/letters'), ...pagesIn('src/journaling-prompts')].map(readPage);
+  const all = [...pagesIn('src/letters'), ...pagesIn('src/journaling-prompts'), ...pagesIn('src/facts')].map(readPage);
   const ctx = {
     mentors: json('src/_data/mentors.json'),
     problems: json('src/_data/problems.json'),

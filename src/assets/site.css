@@ -190,6 +190,14 @@ footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); color: v
 .related { margin-top: 2.5rem; }
 .related-guide { margin-top: 1.5rem; }
 .guide ul { list-style: square; }
+.facts { list-style: none; padding: 0; counter-reset: fact; }
+.fact { counter-increment: fact; padding: 1.25rem 0; border-top: 1px solid var(--rule); }
+.doc .fact + .fact { margin-top: 0; }
+.fact h2 { margin: 0 0 0.4rem; }
+.fact h2::before { content: counter(fact) ". "; color: var(--amber-strong); }
+.fact p { margin: 0 0 0.5rem; }
+.fact .source { margin: 0; font-size: 0.875rem; color: var(--muted-strong); overflow-wrap: anywhere; }
+.legend-tag { margin-right: 0.5rem; font: 600 0.75rem/1 var(--sans, system-ui, sans-serif); letter-spacing: 0.06em; text-transform: uppercase; color: var(--amber-strong); }
 
 /* Waitlist form. */
 .waitlist-box { margin: 2.5rem 0; padding: 1.25rem 1.5rem; background: var(--amber-wash); border-radius: 12px; }

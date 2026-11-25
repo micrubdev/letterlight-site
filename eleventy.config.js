@@ -22,7 +22,9 @@ export default function (eleventyConfig) {
   const letters = (api) => api.getFilteredByGlob(`${input}/letters/*.md`).sort(byDate);
   const guides = (api) => api.getFilteredByGlob(`${input}/journaling-prompts/*.md`).sort(byDate);
   eleventyConfig.addCollection('letters', letters);
+  const facts = (api) => api.getFilteredByGlob(`${input}/facts/*.md`).sort(byDate);
   eleventyConfig.addCollection('guides', guides);
+  eleventyConfig.addCollection('facts', facts);
   eleventyConfig.addCollection('mentorsWithLetters', (api) => {
     const used = new Set(letters(api).map((p) => p.data.mentor));
     return mentors.filter((m) => used.has(m.id));

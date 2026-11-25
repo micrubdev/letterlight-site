@@ -302,10 +302,10 @@
   problem: anger
   query: tao te ching on anger and calm
   status: queued
-- slug: journaling-prompts/fear-of-death
-  type: guide
-  problem: fear-of-death
-  query: journaling prompts for fear of death
+- slug: facts/socrates
+  type: facts
+  mentor: socrates
+  query: facts about socrates
   status: queued
 - slug: letters/socrates-on-envy
   type: letter
@@ -337,10 +337,10 @@
   problem: procrastination
   query: tao te ching journey of a thousand miles procrastination
   status: queued
-- slug: journaling-prompts/breakup
-  type: guide
-  problem: breakup
-  query: journaling prompts for a breakup
+- slug: facts/marcus-aurelius
+  type: facts
+  mentor: marcus-aurelius
+  query: facts about marcus aurelius
   status: queued
 - slug: letters/confucius-on-procrastination
   type: letter
@@ -354,3 +354,13 @@
   problem: losing-your-job
   query: emerson self-reliance after losing your job
   status: queued
+- slug: facts/seneca
+  type: facts
+  mentor: seneca
+  query: facts about seneca
+  status: published
+- slug: facts/epictetus
+  type: facts
+  mentor: epictetus
+  query: facts about epictetus
+  status: published

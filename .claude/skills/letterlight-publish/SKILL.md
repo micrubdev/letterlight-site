@@ -1,6 +1,6 @@
 ---
 name: letterlight-publish
-description: Write, check and publish new SEO pages (mentor letters and journaling guides) for letterlight.app, or report site stats. Use when the user says "publish letterlight pages", "new letterlight pages", "publish N letterlight pages", "letterlight dry run", or "letterlight stats".
+description: Write, check and publish new SEO pages (mentor letters and facts pages) for letterlight.app, or report site stats. Use when the user says "publish letterlight pages", "new letterlight pages", "publish N letterlight pages", "letterlight dry run", or "letterlight stats".
 ---
 
 # letterlight-publish
@@ -20,16 +20,19 @@ Work in `~/letterlight-site` on branch `main`. A push to `main` deploys through 
 
 ## "publish [N] letterlight pages" (default N = 3)
 
-1. **Sync.** `git checkout main && git pull --ff-only`. Count pages already dated today: `grep -l "^date: $(date -u +%F)" src/letters/*.md src/journaling-prompts/*.md | wc -l`. Lower N so the total stays ≤ 10. If that leaves 0, say so and stop.
-2. **Pick topics.** Take the first N rows with `status: queued` from `content/topics.yaml`. Keep about 4 letters for every guide. If fewer than 10 rows are still queued after this run, append new ones, each with a realistic search `query`. Use existing problems where you can; a new problem needs a row in `problems.json` (set `sensitive` honestly). List the added topics in the report.
+1. **Sync.** `git checkout main && git pull --ff-only`. Count pages already dated today: `grep -l "^date: $(date -u +%F)" src/letters/*.md src/journaling-prompts/*.md src/facts/*.md | wc -l`. Lower N so the total stays ≤ 10. If that leaves 0, say so and stop.
+2. **Pick topics.** Take the first N rows with `status: queued` from `content/topics.yaml`. Keep about 4 letters for every facts page. Do not write new journaling guides (user's decision, 2026-11-25); the live ones stay. If fewer than 10 rows are still queued after this run, append new ones, each with a realistic search `query`. Use existing problems where you can; a new problem needs a row in `problems.json` (set `sensitive` honestly). List the added topics in the report.
 3. **Quote** (public-domain letters only). Pick a short passage by that mentor that fits the problem, from a public-domain translation on Wikisource (or another public-domain URL). Add it to `content/quotes.yaml` (`id, mentor, text, work, location, translation, source_url, verified`), then run `node tools/verify-quote.js <id>`. If it fails, fix the text to match the source exactly, or pick another passage.
 4. **Write** each page by following the existing pages' front matter exactly:
    - **Letter:** `src/letters/<mentor>-on-<problem>.md` with `mentor, problem, title (≤60), description (120–160), quote: {id}, prompts (exactly 3), signoff (≤40), signature (optional, ≤30), sensitive, date (today)`.
      - Body: 600–1,100 words in the mentor's `voice` from `mentors.json`, addressed to one reader with this problem, concrete and practical.
      - Open with a short salutation in the mentor's voice (max 15 words). Do not end the body with a sign-off or the mentor's name; put the sign-off in `signoff` (Seneca: "Farewell.") and initials, if the mentor signs that way, in `signature`.
      - Do not quote the mentor inside the body; the verified quote shows separately.
-   - **Guide:** `src/journaling-prompts/<problem>.md` with `problem, title, description, sensitive, date`.
-     - Body: a short intro, a "## How to use these prompts" section, then 15–30 prompts as `-` items under `##` groups. If the title starts with a number, it must equal the prompt count (the check enforces this).
+   - **Facts page:** `src/facts/<mentor>.md` with `mentor, title, description, date, facts` (5–8 items), and a short intro as the body.
+     - Each fact: `title, text (20–130 words), source, source_url, evidence`. `evidence` is an exact passage from a public-domain source. Add `status: legend` to a disputed story; a page may have one or two.
+     - Run `node tools/verify-facts.js src/facts/<mentor>.md`; it must exit 0. Then reread each passage: the text must not claim more than its source does.
+     - If the title starts with a number, it must equal the number of facts that are not legends.
+   - **Live guide edits:** if a guide's title starts with a number, it must equal its prompt count.
    - Titles and descriptions use the words people type into search (the topic's `query`).
    - Then run the `avoid-ai-writing` skill on each body, editing in place.
 5. **Check.** Run `npm run check -- <new paths>`.
@@ -51,7 +54,7 @@ If the request says "dry run", do steps 1–6 and stop: no commit, no push, no c
 
 ## "letterlight stats"
 
-1. Count pages: `ls src/letters/*.md | wc -l` and `ls src/journaling-prompts/*.md | wc -l`.
+1. Count pages: `ls src/letters/*.md | wc -l`, `ls src/facts/*.md | wc -l` and `ls src/journaling-prompts/*.md | wc -l`.
 2. Get the waitlist:
 
    ```bash
