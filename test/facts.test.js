@@ -11,7 +11,7 @@ for (const id of ['epictetus', 'seneca']) {
     assert.ok(n >= 5 && n <= 8, `facts: ${n}`);
     assert.equal((html.match(/class="source"/g) ?? []).length, n);
     assert.match(html, /class="fact fact-legend"/);
-    assert.match(html, /retold with AI/);
+    assert.match(html, /Retold with AI/);
     assert.match(html, new RegExp(`href="/mentors/${id}/"`));
     assert.match(html, new RegExp(`href="/letters/${id}-on-`));
     assert.match(html, /"@type":"Article"/);

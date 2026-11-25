@@ -6,7 +6,7 @@ layout: base.njk
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Letterlight</a> › <a href="/facts/">True stories</a> › <a href="/mentors/{{ mentor }}/">{{ mentorData.name }}</a></nav>
 <article>
   <h1>{{ title }}</h1>
-  <p class="ai-label">Real events, retold with AI from the sources listed under each one. Legends are marked.</p>
+  <p class="ai-label">Retold with AI from the source listed under each story. Legends are marked.</p>
 {{ content | safe }}
   <ol class="facts">
   {%- for f in facts %}

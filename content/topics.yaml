@@ -306,7 +306,7 @@
   type: facts
   mentor: socrates
   query: facts about socrates
-  status: queued
+  status: published
 - slug: letters/socrates-on-envy
   type: letter
   mentor: socrates
@@ -341,7 +341,7 @@
   type: facts
   mentor: marcus-aurelius
   query: facts about marcus aurelius
-  status: queued
+  status: published
 - slug: letters/confucius-on-procrastination
   type: letter
   mentor: confucius
@@ -363,4 +363,9 @@
   type: facts
   mentor: epictetus
   query: facts about epictetus
+  status: published
+- slug: facts/tolstoy
+  type: facts
+  mentor: tolstoy
+  query: facts about tolstoy
   status: published
