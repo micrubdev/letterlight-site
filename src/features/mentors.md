@@ -4,7 +4,7 @@ name: Choosing a mentor
 summary: Browse 46 mentors by theme, from Stoics and poets to scientists.
 title: "46 mentors to write to, from Seneca to Emily Dickinson"
 description: "Browse Letterlight's 46 AI mentors: Stoics, poets, scientists and spiritual teachers. Search by name or filter by theme, then pick who reads your entry."
-date: 2026-11-26
+date: 2026-11-25
 shots:
   - img: mentors
     title: Look through the list

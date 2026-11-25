@@ -4,7 +4,7 @@ name: Your own sources
 summary: Attach a PDF, photo, web page or notes for your mentor to read.
 title: "Attach a PDF, photo or link to a journal entry"
 description: "Attach notes, a PDF, a photo or a web link to a Letterlight journal entry, and your mentor reads it before writing back. See how sources look in the app."
-date: 2026-11-26
+date: 2026-11-25
 shots:
   - img: sources
     title: Let your mentor read it too

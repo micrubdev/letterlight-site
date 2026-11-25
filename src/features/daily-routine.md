@@ -4,7 +4,7 @@ name: A daily routine
 summary: Meals, a walk, a short meditation, with reminders in your mentor's words.
 title: "A daily routine with reminders from your mentor"
 description: "Keep a simple daily routine in Letterlight: meals, a walk, ten minutes of meditation. Your mentor reminds you in their own words. See the screens."
-date: 2026-11-26
+date: 2026-11-25
 shots:
   - img: home
     title: See today at a glance

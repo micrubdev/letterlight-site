@@ -11,6 +11,9 @@ export { normalize, wordCount, shingles, jaccard };
 
 export const LIMITS = { titleMax: 60, descMin: 120, descMax: 160, wordsMin: 600, wordsMax: 1100, guideMin: 15, guideMax: 30, factsMin: 5, factsMax: 8, factWordsMin: 20, factWordsMax: 130, similarMax: 0.35, perDay: 10, signoffMax: 40, signatureMax: 30, salutationMax: 15, closingMin: 6 };
 
+// One-day exceptions to perDay, each approved by the user for that date only.
+const PER_DAY_EXCEPTIONS = { '2026-11-25': 15 }; // 5 app feature pages, "publish now"
+
 const isLetter = (p) => p.split(path.sep).join('/').includes('/letters/');
 const isFacts = (p) => p.split(path.sep).join('/').includes('/facts/');
 const isFeature = (p) => p.split(path.sep).join('/').includes('/features/');
@@ -147,7 +150,8 @@ function main(args) {
   const today = new Date().toISOString().slice(0, 10);
   const dayOf = (d) => (d instanceof Date ? d.toISOString().slice(0, 10) : String(d));
   const todayCount = all.filter((p) => dayOf(p.data.date) === today).length;
-  if (todayCount > LIMITS.perDay) { console.log(`pace: ${todayCount} pages dated ${today}, max ${LIMITS.perDay} a day`); failed++; }
+  const max = PER_DAY_EXCEPTIONS[today] ?? LIMITS.perDay;
+  if (todayCount > max) { console.log(`pace: ${todayCount} pages dated ${today}, max ${max} a day`); failed++; }
   console.log(failed ? `${failed} problem(s) in ${targets.length} page(s)` : `ok: ${targets.length} page(s) pass`);
   process.exit(failed ? 1 : 0);
 }

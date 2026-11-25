@@ -4,7 +4,7 @@ name: Letters from mentors
 summary: Write an entry, choose who reads it, and get a letter back.
 title: "An AI journal that writes back, in a mentor's voice"
 description: "Write a journal entry in Letterlight and a mentor such as Seneca answers with a personal letter and one question. See the screens, from entry to reply."
-date: 2026-11-26
+date: 2026-11-25
 shots:
   - img: editor
     title: Write the entry

@@ -4,7 +4,7 @@ name: Small practices
 summary: Short exercises from CBT, set by your mentor as phone reminders.
 title: "Short CBT-based exercises, set by your mentor"
 description: "After a letter, a Letterlight mentor can set up to two short CBT-based exercises and remind you on your phone. See how practices look and how to cancel."
-date: 2026-11-26
+date: 2026-11-25
 shots:
   - img: practices
     title: Find them under the letter
