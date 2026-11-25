@@ -22,10 +22,6 @@ eleventyComputed:
   {%- endfor %}
   </ul>
 </section>
-{%- set g = collections.guides | byProblem(pr.id) %}
-{%- if g.length %}
-<p>Write about it yourself: <a href="{{ g[0].url }}">{{ g[0].data.title }}</a></p>
-{%- endif %}
 {%- if pr.sensitive %}{% set problemData = pr %}{% include "crisis.njk" %}{% endif %}
 {% include "page-foot.njk" %}
 </main>

@@ -57,7 +57,8 @@ test('guide has breadcrumb and links to letters on its problem only when they ex
 test('home page links into the content', () => {
   const h = read('index.html');
   assert.match(h, /href="\/letters\/"/);
-  assert.match(h, /href="\/journaling-prompts\/"/);
+  assert.match(h, /href="\/facts\/"/);
+  assert.doesNotMatch(h, /journaling-prompts/);
   // The home page shows the newest letters, so count letter links instead of expecting one fixed page.
   assert.equal(new Set(h.match(/href="\/letters\/[a-z-]+\/"/g)).size, 6);
 });
@@ -66,9 +67,9 @@ test('letters index lists every letter grouped by problem, linking each problem 
   assert.match(h, /href="\/letters\/epictetus-on-losing-your-job\/"/);
   assert.match(h, /href="\/problems\/losing-your-job\/"/);
 });
-test('every content page footer links the letters and prompts indexes', () => {
+test('every content page footer links the letters and true stories indexes', () => {
   for (const p of ['letters/seneca-on-losing-your-job/index.html', 'mentors/seneca/index.html', 'journaling-prompts/grief/index.html'])
-    assert.match(read(p), /<nav class="site-nav"[\s\S]*href="\/letters\/"[\s\S]*href="\/journaling-prompts\/"/, p);
+    assert.match(read(p), /<nav class="site-nav"[\s\S]*href="\/letters\/"[\s\S]*href="\/facts\/"/, p);
 });
 test('a letter always links its problem hub, even when it is the only letter on it', () => {
   assert.match(letter(), /href="\/problems\/losing-your-job\/"/);
@@ -116,4 +117,8 @@ test('css and js links carry a content hash so browsers fetch new versions', asy
   const h = read('letters/seneca-on-losing-your-job/index.html');
   assert.match(h, new RegExp(`href="/assets/site\\.css\\?v=${hash('src/assets/site.css')}"`));
   assert.match(h, new RegExp(`src="/assets/waitlist\\.js\\?v=${hash('src/assets/waitlist.js')}"`));
+});
+test('letters, problem pages and mentor pages no longer link to the old guides', () => {
+  for (const p of ['letters/seneca-on-burnout/index.html', 'problems/burnout/index.html', 'mentors/seneca/index.html'])
+    assert.doesNotMatch(read(p), /href="\/journaling-prompts\//, p);
 });
