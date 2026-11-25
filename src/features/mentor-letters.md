@@ -21,4 +21,4 @@ shots:
 ---
 Most journals keep what you write and say nothing. In Letterlight, you pick someone to read the entry, and a letter comes back.
 
-Your journal is stored on your phone. To write a letter, the app sends the entry, its sources and the conversation so far through Letterlight's server to Anthropic, which makes the AI. [How your data is handled](/privacy.html).
+Your journal is stored on your phone. To write a letter, the app sends the entry and the conversation so far through Letterlight's server to Anthropic, which makes the AI. [How your data is handled](/privacy.html).
