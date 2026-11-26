@@ -21,7 +21,7 @@ for (const id of ['epictetus', 'seneca']) {
     assert.match(read(`letters/${id}-on-losing-your-job/index.html`), new RegExp(`href="/facts/${id}/"`));
   });
 }
-test('mentors without a facts page get no facts link', () => assert.doesNotMatch(read('mentors/rumi/index.html'), /href="\/facts\/rumi\//));
+test('mentors without a facts page get no facts link', () => assert.doesNotMatch(read('mentors/confucius/index.html'), /href="\/facts\/confucius\//));
 test('facts index, sitemap and feed list the facts pages', () => {
   for (const f of ['facts/index.html', 'sitemap.xml', 'feed.xml']) for (const id of ['epictetus', 'seneca']) assert.ok(read(f).includes(`/facts/${id}/`), `${f} ${id}`);
 });

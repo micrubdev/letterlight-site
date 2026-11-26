@@ -1,0 +1,43 @@
+---
+mentor: chekhov
+title: "7 stories about Anton Chekhov from his friends"
+description: "Stories about Anton Chekhov from friends who knew him: a patient who wanted an autograph, a crane, his roses in Yalta, and his dream for village teachers."
+date: 2026-11-26
+facts:
+  - title: "A patient came for his autograph"
+    text: "A man Chekhov nicknamed the Tambov squire insisted on medical advice, though Chekhov had long stopped practising. He left two gold coins. Chekhov would not take a fee, so he gave the money to a Yalta charity and wrote a receipt. That receipt, in Chekhov's hand, was what the man had come for."
+    source: "Alexander Kuprin, To Chekhov's Memory, in Reminiscences of Anton Chekhov, translated by S. S. Koteliansky and Leonard Woolf (1921)"
+    source_url: "https://en.wikisource.org/wiki/Reminiscences_of_Anton_Chekhov/To_Chekhov's_Memory"
+    evidence: "the sole purpose of his visit was to obtain Chekhov"
+  - title: "His dogs were called Bromide and Quinine"
+    text: "Chekhov loved animals, except cats. He spoke of his dead dogs, among them Bromide and Quinine, as one speaks of dead friends. At Yalta there was a tame crane that trusted almost nobody but followed his servant Arseniy everywhere."
+    source: "Alexander Kuprin, To Chekhov's Memory, in Reminiscences of Anton Chekhov, translated by S. S. Koteliansky and Leonard Woolf (1921)"
+    source_url: "https://en.wikisource.org/wiki/Reminiscences_of_Anton_Chekhov/To_Chekhov's_Memory"
+    evidence: "He loved dogs specially"
+  - title: "He weeded his roses on his heels"
+    text: "He didn't much like Yalta, but he loved his garden there. In the mornings people saw him squatting on his heels, coating the stems of his roses with sulphur or pulling weeds from the flower beds."
+    source: "Alexander Kuprin, To Chekhov's Memory, in Reminiscences of Anton Chekhov, translated by S. S. Koteliansky and Leonard Woolf (1921)"
+    source_url: "https://en.wikisource.org/wiki/Reminiscences_of_Anton_Chekhov/To_Chekhov's_Memory"
+    evidence: "carefully coating the stems of his roses with sulphur or pulling weeds from the flower beds"
+  - title: "His house in Yalta had a watchtower"
+    text: "Chekhov's cottage stood on the edge of Yalta, on a dusty road. A friend called it the most original building in the town: bright and light, with a watchtower like a castle, unexpected gables, and windows of every width."
+    source: "Alexander Kuprin, To Chekhov's Memory, in Reminiscences of Anton Chekhov, translated by S. S. Koteliansky and Leonard Woolf (1921)"
+    source_url: "https://en.wikisource.org/wiki/Reminiscences_of_Anton_Chekhov/To_Chekhov's_Memory"
+    evidence: "with a watchtower like a castle, with unexpected gables"
+  - title: "He dreamed of a rest home for teachers"
+    text: "Showing Maxim Gorky his small plot of land, Chekhov said that with plenty of money he would build a sanatorium there for sick village teachers, with big windows, a library, music, bees and an orchard."
+    source: "Maxim Gorky, Fragments of Recollections, in Reminiscences of Anton Chekhov, translated by S. S. Koteliansky and Leonard Woolf (1921)"
+    source_url: https://en.wikisource.org/wiki/Reminiscences_of_Anton_Chekhov/Fragments_of_Recollections
+    evidence: "I should build a sanatorium here for invalid village teachers"
+  - title: "He pretended young writers were old"
+    text: "As a joke he liked to make young writers sound old. With mock seriousness he would insist that the younger writer Bunin was his own age."
+    source: "Alexander Kuprin, To Chekhov's Memory, in Reminiscences of Anton Chekhov, translated by S. S. Koteliansky and Leonard Woolf (1921)"
+    source_url: "https://en.wikisource.org/wiki/Reminiscences_of_Anton_Chekhov/To_Chekhov's_Memory"
+    evidence: "He also liked as a joke to make young writers appear old"
+  - title: "Beggars were never turned away"
+    text: "All kinds of visitors came to his door: professors, priests, actors, reporters, people with manuscripts to show him. Beggars came too, real and fake, and Kuprin says none of them was refused."
+    source: "Alexander Kuprin, To Chekhov's Memory, in Reminiscences of Anton Chekhov, translated by S. S. Koteliansky and Leonard Woolf (1921)"
+    source_url: "https://en.wikisource.org/wiki/Reminiscences_of_Anton_Chekhov/To_Chekhov's_Memory"
+    evidence: "These never met with a refusal"
+---
+Anton Chekhov was a doctor who became one of the great short-story writers. These stories come from two writers who knew him, Alexander Kuprin and Maxim Gorky.

@@ -369,3 +369,28 @@
   mentor: tolstoy
   query: facts about tolstoy
   status: published
+- slug: facts/emerson
+  type: facts
+  mentor: emerson
+  query: facts about ralph waldo emerson
+  status: published
+- slug: facts/thoreau
+  type: facts
+  mentor: thoreau
+  query: facts about henry david thoreau
+  status: published
+- slug: facts/rumi
+  type: facts
+  mentor: rumi
+  query: facts about rumi
+  status: published
+- slug: facts/chekhov
+  type: facts
+  mentor: chekhov
+  query: facts about anton chekhov
+  status: published
+- slug: facts/buddha
+  type: facts
+  mentor: buddha
+  query: facts about the buddha
+  status: published
