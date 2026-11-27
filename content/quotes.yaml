@@ -351,3 +351,27 @@
   translation: Benjamin Jowett (1871)
   source_url: https://en.wikisource.org/wiki/Apology_(Jowett)
   verified: 2026-11-27
+- id: emerson-woods-reason-faith
+  mentor: emerson
+  text: "In the woods, we return to reason and faith."
+  work: Nature
+  location: Chapter 1
+  translation: null
+  source_url: https://en.wikisource.org/wiki/Nature_(1836)/Chapter_1
+  verified: 2026-11-27
+- id: seneca-affection-of-friends
+  mentor: seneca
+  text: "Nothing, my excellent Lucilius, refreshes and aids a sick man so much as the affection of his friends"
+  work: Moral Letters to Lucilius
+  location: Letter 78
+  translation: Richard Mott Gummere (1920)
+  source_url: https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_78
+  verified: 2026-11-27
+- id: hillel-lose-his-patience
+  mentor: hillel
+  text: "it is much better that thou lose thy money, than Hillel should lose his patience."
+  work: Talmud, Shabbat 31a, retold in Hebrew Tales
+  location: The Conquest of Meekness; or, the Wager
+  translation: Hyman Hurwitz (1826)
+  source_url: https://en.wikisource.org/wiki/Hebrew_tales;_selected_and_translated_from_the_writings_of_the_ancient_Hebrew_sages
+  verified: 2026-11-27

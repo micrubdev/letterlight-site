@@ -318,19 +318,19 @@
   mentor: emerson
   problem: burnout
   query: emerson on rest nature and burnout
-  status: queued
+  status: published
 - slug: letters/seneca-on-caring-for-a-parent
   type: letter
   mentor: seneca
   problem: caring-for-a-parent
   query: seneca on caring for an aging parent
-  status: queued
+  status: published
 - slug: letters/hillel-on-anger
   type: letter
   mentor: hillel
   problem: anger
   query: jewish wisdom on anger and patience
-  status: queued
+  status: published
 - slug: letters/lao-tzu-on-procrastination
   type: letter
   mentor: lao-tzu
@@ -411,4 +411,22 @@
   mentor: hillel
   problem: envy
   query: hillel on envy
+  status: queued
+- slug: letters/epictetus-on-anger
+  type: letter
+  mentor: epictetus
+  problem: anger
+  query: epictetus on anger
+  status: queued
+- slug: letters/marcus-aurelius-on-caring-for-a-parent
+  type: letter
+  mentor: marcus-aurelius
+  problem: caring-for-a-parent
+  query: marcus aurelius on caring for a parent
+  status: queued
+- slug: letters/tolstoy-on-loneliness
+  type: letter
+  mentor: tolstoy
+  problem: loneliness
+  query: tolstoy on loneliness
   status: queued
