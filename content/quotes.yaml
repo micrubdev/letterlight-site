@@ -327,3 +327,27 @@
   translation: Julius West (1916)
   source_url: https://en.wikisource.org/wiki/The_Cherry_Orchard/Act_II
   verified: 2026-11-25
+- id: marcus-made-for-cooperation
+  mentor: marcus-aurelius
+  text: "For we are made for co-operation, like feet, like hands, like eyelids, like the rows of the upper and lower teeth."
+  work: Meditations
+  location: Book II, 1
+  translation: George Long (1862)
+  source_url: https://en.wikisource.org/wiki/The_Thoughts_of_the_Emperor_Marcus_Aurelius_Antoninus/Book_II
+  verified: 2026-11-27
+- id: laotzu-no-resort-to-rage
+  mentor: lao-tzu
+  text: "He who in (Tao's) wars has skill Assumes no martial port; He who fights with most good will To rage makes no resort."
+  work: Tao Te Ching
+  location: Chapter 68
+  translation: James Legge (1891)
+  source_url: https://en.wikisource.org/wiki/Tâo_Teh_King
+  verified: 2026-11-27
+- id: socrates-heaping-up-honour
+  mentor: socrates
+  text: "are you not ashamed of heaping up the greatest amount of money and honour and reputation, and caring so little about wisdom and truth and the greatest improvement of the soul, which you never regard or heed at all?"
+  work: Plato, Apology
+  location: 29e
+  translation: Benjamin Jowett (1871)
+  source_url: https://en.wikisource.org/wiki/Apology_(Jowett)
+  verified: 2026-11-27

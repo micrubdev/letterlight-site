@@ -295,13 +295,13 @@
   mentor: marcus-aurelius
   problem: loneliness
   query: marcus aurelius on loneliness
-  status: queued
+  status: published
 - slug: letters/lao-tzu-on-anger
   type: letter
   mentor: lao-tzu
   problem: anger
   query: tao te ching on anger and calm
-  status: queued
+  status: published
 - slug: facts/socrates
   type: facts
   mentor: socrates
@@ -312,7 +312,7 @@
   mentor: socrates
   problem: envy
   query: socrates on envy and comparison
-  status: queued
+  status: published
 - slug: letters/emerson-on-burnout
   type: letter
   mentor: emerson
@@ -394,3 +394,21 @@
   mentor: buddha
   query: facts about the buddha
   status: published
+- slug: letters/seneca-on-envy
+  type: letter
+  mentor: seneca
+  problem: envy
+  query: seneca on envy and comparison
+  status: queued
+- slug: letters/marcus-aurelius-on-envy
+  type: letter
+  mentor: marcus-aurelius
+  problem: envy
+  query: marcus aurelius on envy
+  status: queued
+- slug: letters/hillel-on-envy
+  type: letter
+  mentor: hillel
+  problem: envy
+  query: hillel on envy
+  status: queued
