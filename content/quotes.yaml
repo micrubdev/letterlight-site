@@ -375,3 +375,27 @@
   translation: Hyman Hurwitz (1826)
   source_url: https://en.wikisource.org/wiki/Hebrew_tales;_selected_and_translated_from_the_writings_of_the_ancient_Hebrew_sages
   verified: 2026-11-27
+- id: laotzu-thousand-li
+  mentor: lao-tzu
+  text: "The tree which fills the arms grew from the tiniest sprout; the tower of nine storeys rose from a (small) heap of earth; the journey of a thousand li commenced with a single step."
+  work: Tao Te Ching
+  location: Chapter 64
+  translation: James Legge (1891)
+  source_url: https://en.wikisource.org/wiki/Tâo_Teh_King
+  verified: 2026-11-28
+- id: confucius-basket-of-earth
+  mentor: confucius
+  text: "If there want but one basket of earth to complete the work, and I stop, the stopping is my own work. It may be compared to throwing down the earth on the level ground. Though but one basketful is thrown at a time, the advancing with it is my own going forward."
+  work: Analects
+  location: Book IX, Chapter 18
+  translation: James Legge (1861)
+  source_url: https://en.wikisource.org/wiki/The_Chinese_Classics/Volume_1/Confucian_Analects/IX
+  verified: 2026-11-28
+- id: emerson-falls-on-his-feet
+  mentor: emerson
+  text: "A sturdy lad from New Hampshire or Vermont, who in turn tries all the professions, who teams it, farms it, peddles, keeps a school, preaches, edits a newspaper, goes to Congress, buys a township, and so forth, in successive years, and always, like a cat, falls on his feet, is worth a hundred of these city dolls."
+  work: Self-Reliance
+  location: Essays, First Series (1841)
+  translation: null
+  source_url: https://en.wikisource.org/wiki/Essays:_First_Series/Self-Reliance
+  verified: 2026-11-28

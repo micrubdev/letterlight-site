@@ -336,7 +336,7 @@
   mentor: lao-tzu
   problem: procrastination
   query: tao te ching journey of a thousand miles procrastination
-  status: queued
+  status: published
 - slug: facts/marcus-aurelius
   type: facts
   mentor: marcus-aurelius
@@ -347,13 +347,13 @@
   mentor: confucius
   problem: procrastination
   query: confucius on procrastination and self discipline
-  status: queued
+  status: published
 - slug: letters/emerson-on-losing-your-job
   type: letter
   mentor: emerson
   problem: losing-your-job
   query: emerson self-reliance after losing your job
-  status: queued
+  status: published
 - slug: facts/seneca
   type: facts
   mentor: seneca
@@ -429,4 +429,22 @@
   mentor: tolstoy
   problem: loneliness
   query: tolstoy on loneliness
+  status: queued
+- slug: letters/confucius-on-anger
+  type: letter
+  mentor: confucius
+  problem: anger
+  query: confucius on anger
+  status: queued
+- slug: letters/socrates-on-loneliness
+  type: letter
+  mentor: socrates
+  problem: loneliness
+  query: socrates on loneliness and friendship
+  status: queued
+- slug: letters/rumi-on-loneliness
+  type: letter
+  mentor: rumi
+  problem: loneliness
+  query: rumi on loneliness
   status: queued
